@@ -1,0 +1,45 @@
+import { Container } from "./Container";
+import { Logo } from "./Logo";
+
+export function Footer() {
+  return (
+    <footer className="bg-navy py-10 text-white">
+      <Container>
+        <div className="flex flex-col gap-8 border-b border-white/10 pb-8 sm:flex-row sm:items-center sm:justify-between">
+          <div>
+            <Logo footer />
+            <p className="mt-4 max-w-sm text-sm leading-6 text-white/55">
+              Nowoczesny system nauki i treningu pływackiego w Tarnowie.
+            </p>
+          </div>
+          <nav aria-label="Stopka" className="flex flex-wrap gap-x-6 gap-y-3">
+            <a href="#oferta" className="text-sm font-bold text-white/65 transition-colors hover:text-cyan">
+              Cele
+            </a>
+            <a href="#proces" className="text-sm font-bold text-white/65 transition-colors hover:text-cyan">
+              Proces
+            </a>
+            <a href="#o-nas" className="text-sm font-bold text-white/65 transition-colors hover:text-cyan">
+              O nas
+            </a>
+            <a href="#kontakt" className="text-sm font-bold text-white/65 transition-colors hover:text-cyan">
+              Kontakt
+            </a>
+          </nav>
+        </div>
+        <div className="flex flex-col gap-3 pt-6 text-xs font-semibold text-white/45 sm:flex-row sm:items-center sm:justify-between">
+          <p>© {new Date().getFullYear()} SwimCore. Wszystkie prawa zastrzeżone.</p>
+          <div className="flex flex-col gap-2 sm:items-end">
+            <span>Tarnów</span>
+            <a
+              href="mailto:swimcore.plywanie@gmail.com"
+              className="transition-colors hover:text-cyan"
+            >
+              swimcore.plywanie@gmail.com
+            </a>
+          </div>
+        </div>
+      </Container>
+    </footer>
+  );
+}
