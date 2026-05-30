@@ -1,5 +1,6 @@
 import { About } from "@/components/About";
 import { CTA } from "@/components/CTA";
+import { FAQSection } from "@/components/FAQSection";
 import { Footer } from "@/components/Footer";
 import { Hero } from "@/components/Hero";
 import { Navbar } from "@/components/Navbar";
@@ -23,6 +24,7 @@ export default function Home() {
         <Testimonials />
         <PracticalInfo />
         <PricingSection />
+        <FAQSection />
         <CTA />
       </main>
       <Footer />
