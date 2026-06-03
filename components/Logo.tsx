@@ -5,20 +5,37 @@ type LogoProps = {
 };
 
 export function Logo({ footer = false }: LogoProps) {
+  if (!footer) {
+    return (
+      <a
+        href="#"
+        aria-label="SwimCore - strona główna"
+        className="group block max-w-[160px] shrink-0 bg-transparent p-0 transition-transform duration-300 hover:-translate-y-0.5"
+      >
+        <Image
+          src="/images/swimcore-logo-navbar.png"
+          alt="SwimCore - Szkoła Pływania"
+          width={160}
+          height={48}
+          priority
+          className="logo-img"
+        />
+      </a>
+    );
+  }
+
   return (
     <a
       href="#"
       aria-label="SwimCore - strona główna"
-      className={`group relative block shrink-0 transition-all duration-300 hover:-translate-y-0.5 hover:drop-shadow-[0_0_18px_rgba(34,211,238,0.35)] ${
-        footer ? "h-32 w-40" : "h-[86px] w-28 sm:h-28 sm:w-36"
-      }`}
+      className="group block w-60 shrink-0 bg-transparent p-0 transition-all duration-300 hover:-translate-y-0.5 hover:drop-shadow-[0_0_20px_rgba(255,255,255,0.42)]"
     >
       <Image
-        src="/images/swimcore-logo-transparent-v2.png"
+        src="/images/swimcore-logo-navbar.png"
         alt="SwimCore - Szkoła Pływania"
-        fill
-        sizes={footer ? "160px" : "(min-width: 640px) 144px, 112px"}
-        className="object-contain"
+        width={240}
+        height={72}
+        className="h-auto w-full bg-transparent object-contain"
       />
     </a>
   );

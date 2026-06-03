@@ -27,7 +27,7 @@ const reasons: { title: string; description: string; icon: IconName }[] = [
 
 export function WhyUs() {
   return (
-    <section id="dlaczego-my" className="scroll-mt-16 bg-ink py-24 sm:py-28 lg:py-36">
+    <section id="dlaczego-my" className="scroll-mt-16 bg-white py-24 sm:py-28 lg:py-36">
       <Container>
         <SectionHeading
           eyebrow="Dlaczego SwimCore"
@@ -39,12 +39,12 @@ export function WhyUs() {
           {reasons.map((item) => (
             <article
               key={item.title}
-              className="rounded-[1.65rem] border border-white/10 bg-white/[0.05] p-5 shadow-card backdrop-blur-xl transition-all duration-300 hover:-translate-y-1.5 hover:border-cyan/35 hover:bg-white/[0.08] hover:shadow-glow sm:p-6"
+              className="rounded-[1.65rem] border border-ink/10 bg-white p-5 shadow-card transition-all duration-300 hover:-translate-y-1.5 hover:border-orange/35 hover:shadow-glow sm:p-6"
             >
-              <span className="grid h-11 w-11 place-items-center rounded-xl bg-gradient-to-br from-purple to-cyan text-white">
+              <span className="grid h-11 w-11 place-items-center rounded-xl bg-orange text-white">
                 <Icon name={item.icon} className="h-5 w-5" />
               </span>
-              <h3 className="mt-6 text-base font-black tracking-[-0.025em] text-white">{item.title}</h3>
+              <h3 className="mt-6 text-base font-black tracking-[-0.025em] text-ink">{item.title}</h3>
               <p className="mt-2.5 text-sm leading-6 text-muted">{item.description}</p>
             </article>
           ))}

@@ -25,7 +25,7 @@ const plans = [
 
 export function PricingSection() {
   return (
-    <section id="cennik" className="scroll-mt-16 bg-ink py-20 sm:py-24 lg:py-28">
+    <section id="cennik" className="scroll-mt-16 bg-white py-20 sm:py-24 lg:py-28">
       <Container>
         <SectionHeading
           eyebrow="Cennik"
@@ -39,24 +39,24 @@ export function PricingSection() {
               key={plan.name}
               className={`relative flex flex-col overflow-hidden rounded-[1.75rem] border p-6 shadow-card backdrop-blur-xl transition-all duration-300 hover:-translate-y-1.5 hover:shadow-glow sm:p-7 ${
                 plan.featured
-                  ? "border-purple/70 bg-[linear-gradient(145deg,rgba(124,58,237,0.2),rgba(34,211,238,0.08))]"
-                  : "border-white/10 bg-white/[0.05] hover:border-cyan/45 hover:bg-white/[0.08]"
+                  ? "border-orange/70 bg-[linear-gradient(145deg,rgba(241,90,36,0.14),rgba(255,255,255,0.96))]"
+                  : "border-ink/10 bg-white hover:border-orange/45"
               }`}
             >
               {plan.featured ? (
-                <div className="pointer-events-none absolute -right-20 -top-24 h-52 w-52 rounded-full bg-cyan/20 blur-3xl" />
+                <div className="pointer-events-none absolute -right-20 -top-24 h-52 w-52 rounded-full bg-orange/20 blur-3xl" />
               ) : null}
               <div className="relative">
                 {plan.badge ? (
-                  <span className="inline-flex rounded-full border border-cyan/30 bg-cyan/10 px-3 py-1 text-[10px] font-black uppercase tracking-[0.14em] text-cyan">
+                  <span className="inline-flex rounded-full border border-orange/30 bg-orange/10 px-3 py-1 text-[10px] font-black uppercase tracking-[0.14em] text-orange">
                     {plan.badge}
                   </span>
                 ) : (
-                  <span className="inline-flex rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-[10px] font-black uppercase tracking-[0.14em] text-muted">
+                  <span className="inline-flex rounded-full border border-ink/10 bg-light px-3 py-1 text-[10px] font-black uppercase tracking-[0.14em] text-muted">
                     SwimCore Team
                   </span>
                 )}
-                <h3 className="mt-5 text-2xl font-black tracking-[-0.04em] text-white">{plan.name}</h3>
+                <h3 className="mt-5 text-2xl font-black tracking-[-0.04em] text-ink">{plan.name}</h3>
                 <p className="mt-3 min-h-12 text-sm leading-6 text-muted">{plan.description}</p>
               </div>
 
@@ -64,11 +64,11 @@ export function PricingSection() {
                 {plan.prices.map((price) => (
                   <div
                     key={price.label}
-                    className="flex items-center justify-between gap-4 rounded-2xl border border-white/10 bg-ink/55 px-4 py-4"
+                    className="flex items-center justify-between gap-4 rounded-2xl border border-ink/10 bg-light px-4 py-4"
                   >
-                    <span className="text-sm font-bold leading-5 text-white/75">{price.label}</span>
+                    <span className="text-sm font-bold leading-5 text-muted">{price.label}</span>
                     <span className="shrink-0 text-right">
-                      <span className="block text-lg font-black text-white">{price.value}</span>
+                      <span className="block text-lg font-black text-ink">{price.value}</span>
                       {price.suffix ? <span className="block text-[10px] font-bold text-muted">{price.suffix}</span> : null}
                     </span>
                   </div>
@@ -79,8 +79,8 @@ export function PricingSection() {
                 href="#kontakt"
                 className={`relative mt-7 inline-flex items-center justify-center gap-2 rounded-full px-6 py-3.5 text-sm font-black text-white transition-all duration-300 hover:-translate-y-1 hover:brightness-110 ${
                   plan.featured
-                    ? "bg-gradient-to-r from-purple to-cyan shadow-glow"
-                    : "border border-white/15 bg-white/[0.08] hover:border-cyan/60 hover:bg-white/[0.12]"
+                    ? "bg-orange shadow-glow"
+                    : "bg-ink shadow-card hover:bg-orange hover:shadow-glow"
                 }`}
               >
                 Zapisz się

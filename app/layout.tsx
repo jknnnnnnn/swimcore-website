@@ -1,26 +1,36 @@
 import type { Metadata } from "next";
+import { LocalBusinessJsonLd } from "@/components/LocalBusinessJsonLd";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://swimcore.pl"),
-  title: "SwimCore – Pływanie z konkretnym celem",
+  metadataBase: new URL("https://www.swimcore.pl"),
+  title: "SwimCore – Szkoła Pływania Tarnów",
   description:
-    "Nowoczesna szkoła pływania w Tarnowie dla dzieci, dorosłych, zawodników, triathlonistów i osób przygotowujących się do egzaminów służbowych.",
+    "Nauka pływania w Tarnowie dla dzieci, dorosłych i sportowców. Lekcje indywidualne, doskonalenie techniki, triathlon, Ironman oraz przygotowanie do egzaminów służbowych.",
   keywords: [
-    "szkoła pływania Tarnów",
     "nauka pływania Tarnów",
-    "lekcje pływania Tarnów",
-    "triathlon",
-    "egzaminy służbowe",
-    "SwimCore",
+    "szkoła pływania Tarnów",
+    "instruktor pływania Tarnów",
+    "pływanie dzieci Tarnów",
+    "pływanie dorośli Tarnów",
   ],
+  alternates: {
+    canonical: "https://www.swimcore.pl",
+  },
   openGraph: {
-    title: "SwimCore – Pływanie z konkretnym celem",
+    title: "SwimCore – Szkoła Pływania Tarnów",
     description:
-      "Nowoczesny system nauki i treningu pływackiego w Tarnowie.",
+      "Nauka pływania w Tarnowie dla dzieci, dorosłych i sportowców. Lekcje indywidualne, doskonalenie techniki, triathlon, Ironman oraz przygotowanie do egzaminów służbowych.",
     type: "website",
     locale: "pl_PL",
-    url: "https://swimcore.pl",
+    url: "https://www.swimcore.pl",
+    siteName: "SwimCore",
+  },
+  twitter: {
+    card: "summary",
+    title: "SwimCore – Szkoła Pływania Tarnów",
+    description:
+      "Nauka pływania w Tarnowie dla dzieci, dorosłych i sportowców. Lekcje indywidualne, doskonalenie techniki, triathlon, Ironman oraz przygotowanie do egzaminów służbowych.",
   },
 };
 
@@ -31,7 +41,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pl">
-      <body>{children}</body>
+      <body>
+        <LocalBusinessJsonLd />
+        {children}
+      </body>
     </html>
   );
 }

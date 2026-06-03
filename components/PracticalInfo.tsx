@@ -32,7 +32,7 @@ const details: { title: string; description: string; icon: IconName }[] = [
 
 export function PracticalInfo() {
   return (
-    <section className="bg-navy py-20 sm:py-24 lg:py-28">
+    <section className="bg-light py-20 sm:py-24 lg:py-28">
       <Container>
         <SectionHeading
           eyebrow="Pierwszy krok"
@@ -43,12 +43,12 @@ export function PracticalInfo() {
           {details.map((detail) => (
             <article
               key={detail.title}
-              className="rounded-[1.4rem] border border-white/10 bg-white/[0.05] p-5 shadow-card backdrop-blur-xl transition-all duration-300 hover:-translate-y-1.5 hover:border-cyan/50 hover:bg-white/[0.08] hover:shadow-glow"
+              className="rounded-[1.4rem] border border-ink/10 bg-white p-5 shadow-card transition-all duration-300 hover:-translate-y-1.5 hover:border-orange/50 hover:shadow-glow"
             >
-              <span className="grid h-11 w-11 place-items-center rounded-xl bg-gradient-to-br from-purple to-cyan text-white shadow-glow">
+              <span className="grid h-11 w-11 place-items-center rounded-xl bg-orange text-white shadow-glow">
                 <Icon name={detail.icon} className="h-5 w-5" />
               </span>
-              <h3 className="mt-5 text-sm font-black text-white">{detail.title}</h3>
+              <h3 className="mt-5 text-sm font-black text-ink">{detail.title}</h3>
               <p className="mt-2 text-sm leading-6 text-muted">{detail.description}</p>
             </article>
           ))}

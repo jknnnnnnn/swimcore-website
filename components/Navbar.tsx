@@ -43,15 +43,15 @@ export function Navbar() {
   }, [isOpen]);
 
   return (
-    <header className="absolute inset-x-0 top-0 z-40">
-      <Container className="flex h-28 items-center justify-between sm:h-32">
+    <header className="absolute inset-x-0 top-0 z-40 bg-[#EC6B3B] text-white shadow-[0_14px_42px_rgba(236,107,59,0.24)]">
+      <Container className="flex h-[88px] items-center justify-between">
         <Logo />
         <nav aria-label="Główna nawigacja" className="hidden items-center gap-7 lg:flex">
           {desktopLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className="text-sm font-bold text-white/65 transition-colors duration-300 hover:text-cyan"
+              className="rounded-full px-3 py-2 text-sm font-bold text-white/85 transition-all duration-300 hover:bg-white/10 hover:text-white"
             >
               {link.label}
             </a>
@@ -59,7 +59,7 @@ export function Navbar() {
         </nav>
         <a
           href="#kontakt"
-          className="hidden rounded-full bg-gradient-to-r from-purple to-cyan px-5 py-2.5 text-sm font-extrabold text-white shadow-glow transition-all duration-300 hover:-translate-y-0.5 hover:brightness-110 lg:inline-flex"
+          className="hidden rounded-full bg-ink px-5 py-2.5 text-sm font-extrabold text-white shadow-[0_14px_32px_rgba(17,17,17,0.28)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#1A1A1A] lg:inline-flex"
         >
           Zapisz się
         </a>
@@ -69,7 +69,7 @@ export function Navbar() {
           aria-expanded={isOpen}
           aria-controls="mobile-menu"
           onClick={() => setIsOpen((current) => !current)}
-          className="relative z-50 grid h-12 w-12 place-items-center rounded-full border border-white/15 bg-white/[0.07] text-white shadow-card backdrop-blur-xl transition-all duration-300 hover:border-cyan/60 hover:bg-white/[0.12] focus:outline-none focus:ring-2 focus:ring-cyan lg:hidden"
+          className="relative z-50 grid h-12 w-12 place-items-center rounded-full border border-white/30 bg-ink/15 text-white shadow-card backdrop-blur-xl transition-all duration-300 hover:bg-ink/25 focus:outline-none focus:ring-2 focus:ring-white/80 lg:hidden"
         >
           <span className="sr-only">{isOpen ? "Zamknij menu" : "Otwórz menu"}</span>
           <span className="grid gap-1.5">
@@ -93,7 +93,7 @@ export function Navbar() {
       </Container>
 
       <div
-        className={`fixed inset-0 z-40 bg-ink/75 backdrop-blur-sm transition-opacity duration-300 lg:hidden ${
+        className={`fixed inset-0 z-40 bg-ink/80 backdrop-blur-sm transition-opacity duration-300 lg:hidden ${
           isOpen ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"
         }`}
         aria-hidden="true"
@@ -103,32 +103,38 @@ export function Navbar() {
         id="mobile-menu"
         aria-label="Mobilna nawigacja"
         aria-hidden={!isOpen}
-        className={`fixed right-0 top-0 z-40 flex h-dvh w-[min(86vw,360px)] flex-col border-l border-white/10 bg-navy/95 px-6 pb-8 pt-32 shadow-soft backdrop-blur-2xl transition-transform duration-300 lg:hidden ${
-          isOpen ? "translate-x-0" : "translate-x-full"
+        className={`fixed right-0 top-0 z-40 h-dvh w-[min(86vw,360px)] overflow-hidden transition-opacity duration-300 lg:hidden ${
+          isOpen ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"
         }`}
       >
-        <p className="text-[10px] font-black uppercase tracking-[0.18em] text-cyan">SwimCore navigation</p>
-        <div className="mt-6 grid gap-2">
-          {mobileLinks.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              tabIndex={isOpen ? undefined : -1}
-              onClick={() => setIsOpen(false)}
-              className="rounded-xl border border-transparent px-3 py-3 text-base font-black text-white/80 transition-all duration-300 hover:border-white/10 hover:bg-white/[0.06] hover:text-cyan"
-            >
-              {link.label}
-            </a>
-          ))}
-        </div>
-        <a
-          href="#kontakt"
-          tabIndex={isOpen ? undefined : -1}
-          onClick={() => setIsOpen(false)}
-          className="mt-auto inline-flex items-center justify-center rounded-full bg-gradient-to-r from-purple to-cyan px-5 py-3.5 text-sm font-black text-white shadow-glow transition-all duration-300 hover:-translate-y-1 hover:brightness-110"
+        <div
+          className={`flex h-full flex-col border-l border-white/20 bg-[#EC6B3B] px-6 pb-8 pt-32 shadow-soft transition-transform duration-300 ${
+            isOpen ? "translate-x-0" : "translate-x-full"
+          }`}
         >
-          Zapisz się
-        </a>
+          <p className="text-[10px] font-black uppercase tracking-[0.18em] text-white/70">SwimCore navigation</p>
+          <div className="mt-6 grid gap-2">
+            {mobileLinks.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                tabIndex={isOpen ? undefined : -1}
+                onClick={() => setIsOpen(false)}
+                className="rounded-xl border border-transparent px-3 py-3 text-base font-black text-white/90 transition-all duration-300 hover:border-white/15 hover:bg-white/10 hover:text-white"
+              >
+                {link.label}
+              </a>
+            ))}
+          </div>
+          <a
+            href="#kontakt"
+            tabIndex={isOpen ? undefined : -1}
+            onClick={() => setIsOpen(false)}
+            className="mt-auto inline-flex items-center justify-center rounded-full bg-ink px-5 py-3.5 text-sm font-black text-white shadow-[0_14px_32px_rgba(17,17,17,0.28)] transition-all duration-300 hover:-translate-y-1 hover:bg-[#1A1A1A]"
+          >
+            Zapisz się
+          </a>
+        </div>
       </nav>
     </header>
   );

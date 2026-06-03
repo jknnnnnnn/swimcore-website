@@ -13,16 +13,16 @@ export function Footer() {
             </p>
           </div>
           <nav aria-label="Stopka" className="flex flex-wrap gap-x-6 gap-y-3">
-            <a href="#oferta" className="text-sm font-bold text-white/65 transition-colors hover:text-cyan">
+            <a href="#oferta" className="text-sm font-bold text-white/65 transition-colors hover:text-orange">
               Cele
             </a>
-            <a href="#proces" className="text-sm font-bold text-white/65 transition-colors hover:text-cyan">
+            <a href="#proces" className="text-sm font-bold text-white/65 transition-colors hover:text-orange">
               Proces
             </a>
-            <a href="#o-nas" className="text-sm font-bold text-white/65 transition-colors hover:text-cyan">
+            <a href="#o-nas" className="text-sm font-bold text-white/65 transition-colors hover:text-orange">
               O nas
             </a>
-            <a href="#kontakt" className="text-sm font-bold text-white/65 transition-colors hover:text-cyan">
+            <a href="#kontakt" className="text-sm font-bold text-white/65 transition-colors hover:text-orange">
               Kontakt
             </a>
           </nav>
@@ -33,7 +33,7 @@ export function Footer() {
             <span>Tarnów</span>
             <a
               href="mailto:swimcore.plywanie@gmail.com"
-              className="transition-colors hover:text-cyan"
+              className="transition-colors hover:text-orange"
             >
               swimcore.plywanie@gmail.com
             </a>
