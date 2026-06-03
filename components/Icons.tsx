@@ -9,11 +9,13 @@ export type IconName =
   | "clock"
   | "compass"
   | "heart"
+  | "instagram"
   | "medal"
   | "person"
   | "shield"
   | "spark"
-  | "target";
+  | "target"
+  | "tiktok";
 
 type IconProps = SVGProps<SVGSVGElement> & {
   name: IconName;
@@ -57,6 +59,13 @@ export function Icon({ name, ...props }: IconProps) {
       </>
     ),
     heart: <path d="M20 8.5c0 5.8-8 10-8 10s-8-4.2-8-10c0-4.4 5.4-5.7 8-2.2 2.6-3.5 8-2.2 8 2.2Z" />,
+    instagram: (
+      <>
+        <rect x="4" y="4" width="16" height="16" rx="4.5" />
+        <circle cx="12" cy="12" r="3.5" />
+        <path d="M16.8 7.2h.01" />
+      </>
+    ),
     medal: (
       <>
         <circle cx="12" cy="15" r="5" />
@@ -81,6 +90,12 @@ export function Icon({ name, ...props }: IconProps) {
         <circle cx="12" cy="12" r="8.5" />
         <circle cx="12" cy="12" r="4.5" />
         <circle cx="12" cy="12" r="1" />
+      </>
+    ),
+    tiktok: (
+      <>
+        <path d="M14 4v9.2a4.2 4.2 0 1 1-3.3-4.1" />
+        <path d="M14 4c.5 2.6 2.1 4.2 5 4.6" />
       </>
     ),
   };

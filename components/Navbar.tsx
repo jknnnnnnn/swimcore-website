@@ -1,7 +1,9 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { siteConfig } from "@/lib/site";
 import { Container } from "./Container";
+import { Icon } from "./Icons";
 import { Logo } from "./Logo";
 
 const desktopLinks = [
@@ -43,7 +45,7 @@ export function Navbar() {
   }, [isOpen]);
 
   return (
-    <header className="absolute inset-x-0 top-0 z-40 bg-[#EC6B3B] text-white shadow-[0_14px_42px_rgba(236,107,59,0.24)]">
+    <header className="absolute inset-x-0 top-0 z-40 bg-[linear-gradient(90deg,#EC6B3B_0%,#F15A24_62%,#FF6B00_100%)] text-white shadow-[0_14px_42px_rgba(236,107,59,0.24)]">
       <Container className="flex h-[88px] items-center justify-between">
         <Logo />
         <nav aria-label="Główna nawigacja" className="hidden items-center gap-7 lg:flex">
@@ -57,12 +59,23 @@ export function Navbar() {
             </a>
           ))}
         </nav>
-        <a
-          href="#kontakt"
-          className="hidden rounded-full bg-ink px-5 py-2.5 text-sm font-extrabold text-white shadow-[0_14px_32px_rgba(17,17,17,0.28)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#1A1A1A] lg:inline-flex"
-        >
-          Zapisz się
-        </a>
+        <div className="hidden items-center gap-3 lg:flex">
+          <a
+            href={siteConfig.social.instagram}
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Instagram SwimCore"
+            className="grid h-11 w-11 place-items-center rounded-full border border-white/25 text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-ink hover:text-white"
+          >
+            <Icon name="instagram" className="h-5 w-5" />
+          </a>
+          <a
+            href="#kontakt"
+            className="rounded-full bg-ink px-5 py-2.5 text-sm font-extrabold text-white shadow-[0_14px_32px_rgba(17,17,17,0.28)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#1A1A1A]"
+          >
+            Zapisz się
+          </a>
+        </div>
         <button
           type="button"
           aria-label={isOpen ? "Zamknij menu" : "Otwórz menu"}
@@ -108,7 +121,7 @@ export function Navbar() {
         }`}
       >
         <div
-          className={`flex h-full flex-col border-l border-white/20 bg-[#EC6B3B] px-6 pb-8 pt-32 shadow-soft transition-transform duration-300 ${
+          className={`flex h-full flex-col border-l border-white/20 bg-[linear-gradient(180deg,#EC6B3B_0%,#F15A24_64%,#FF6B00_100%)] px-6 pb-8 pt-32 shadow-soft transition-transform duration-300 ${
             isOpen ? "translate-x-0" : "translate-x-full"
           }`}
         >
@@ -126,14 +139,27 @@ export function Navbar() {
               </a>
             ))}
           </div>
-          <a
-            href="#kontakt"
-            tabIndex={isOpen ? undefined : -1}
-            onClick={() => setIsOpen(false)}
-            className="mt-auto inline-flex items-center justify-center rounded-full bg-ink px-5 py-3.5 text-sm font-black text-white shadow-[0_14px_32px_rgba(17,17,17,0.28)] transition-all duration-300 hover:-translate-y-1 hover:bg-[#1A1A1A]"
-          >
-            Zapisz się
-          </a>
+          <div className="mt-auto grid gap-3">
+            <a
+              href={siteConfig.social.instagram}
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Instagram SwimCore"
+              tabIndex={isOpen ? undefined : -1}
+              className="inline-flex items-center justify-center gap-2 rounded-full border border-white/25 px-5 py-3.5 text-sm font-black text-white transition-all duration-300 hover:bg-ink"
+            >
+              <Icon name="instagram" className="h-5 w-5" />
+              Instagram
+            </a>
+            <a
+              href="#kontakt"
+              tabIndex={isOpen ? undefined : -1}
+              onClick={() => setIsOpen(false)}
+              className="inline-flex items-center justify-center rounded-full bg-ink px-5 py-3.5 text-sm font-black text-white shadow-[0_14px_32px_rgba(17,17,17,0.28)] transition-all duration-300 hover:-translate-y-1 hover:bg-[#1A1A1A]"
+            >
+              Zapisz się
+            </a>
+          </div>
         </div>
       </nav>
     </header>

@@ -1,9 +1,11 @@
 "use client";
 
 import type { FormEvent } from "react";
+import { siteConfig } from "@/lib/site";
 import { Container } from "./Container";
+import { Icon } from "./Icons";
 
-const contactEmail = "swimcore.plywanie@gmail.com";
+const contactEmail = siteConfig.email;
 
 export function CTA() {
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
@@ -54,6 +56,16 @@ export function CTA() {
                 className="mt-7 inline-block text-sm font-bold text-white/55 transition-colors hover:text-orange"
               >
                 {contactEmail}
+              </a>
+              <a
+                href={siteConfig.social.instagram}
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Instagram SwimCore"
+                className="mt-4 inline-flex items-center gap-2 text-sm font-bold text-white/55 transition-colors hover:text-orange"
+              >
+                <Icon name="instagram" className="h-5 w-5" />
+                Instagram SwimCore
               </a>
             </div>
 

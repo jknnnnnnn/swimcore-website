@@ -1,4 +1,6 @@
+import { siteConfig } from "@/lib/site";
 import { Container } from "./Container";
+import { Icon } from "./Icons";
 import { Logo } from "./Logo";
 
 export function Footer() {
@@ -32,10 +34,20 @@ export function Footer() {
           <div className="flex flex-col gap-2 sm:items-end">
             <span>Tarnów</span>
             <a
-              href="mailto:swimcore.plywanie@gmail.com"
+              href={`mailto:${siteConfig.email}`}
               className="transition-colors hover:text-orange"
             >
-              swimcore.plywanie@gmail.com
+              {siteConfig.email}
+            </a>
+            <a
+              href={siteConfig.social.instagram}
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Instagram SwimCore"
+              className="inline-flex items-center gap-2 transition-colors hover:text-orange"
+            >
+              <Icon name="instagram" className="h-4 w-4" />
+              Instagram
             </a>
           </div>
         </div>

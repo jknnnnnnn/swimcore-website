@@ -13,7 +13,7 @@ export function Logo({ footer = false }: LogoProps) {
         className="group block max-w-[160px] shrink-0 bg-transparent p-0 transition-transform duration-300 hover:-translate-y-0.5"
       >
         <Image
-          src="/images/swimcore-logo-navbar.png"
+          src="/images/swimcore-logo-navbar-transparent.png"
           alt="SwimCore - Szkoła Pływania"
           width={160}
           height={48}
@@ -31,7 +31,7 @@ export function Logo({ footer = false }: LogoProps) {
       className="group block w-60 shrink-0 bg-transparent p-0 transition-all duration-300 hover:-translate-y-0.5 hover:drop-shadow-[0_0_20px_rgba(255,255,255,0.42)]"
     >
       <Image
-        src="/images/swimcore-logo-navbar.png"
+        src="/images/swimcore-logo-navbar-transparent.png"
         alt="SwimCore - Szkoła Pływania"
         width={240}
         height={72}
