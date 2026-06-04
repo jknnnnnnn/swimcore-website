@@ -1,3 +1,5 @@
+import { siteConfig } from "@/lib/site";
+
 const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": ["LocalBusiness", "SportsActivityLocation"],
@@ -5,7 +7,8 @@ const localBusinessSchema = {
   name: "SwimCore",
   description: "Szkoła pływania w Tarnowie",
   url: "https://www.swimcore.pl",
-  email: "swimcore.plywanie@gmail.com",
+  email: siteConfig.email,
+  telephone: siteConfig.phone,
   address: {
     "@type": "PostalAddress",
     addressLocality: "Tarnów",

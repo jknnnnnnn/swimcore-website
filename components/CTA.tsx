@@ -1,38 +1,57 @@
 "use client";
 
 import type { FormEvent } from "react";
+import { useState } from "react";
 import { siteConfig } from "@/lib/site";
 import { Container } from "./Container";
 import { Icon } from "./Icons";
 
-const contactEmail = siteConfig.email;
+const formspreeEndpoint = "https://formspree.io/f/xgobvklp";
+
+const goalOptions = [
+  "Nauka pływania dziecka",
+  "Nauka pływania dorosłego",
+  "Doskonalenie techniki",
+  "Egzaminy straż / policja / wojsko",
+  "Triathlon / Ironman",
+  "Trening zawodniczy",
+];
+
+type SubmitStatus = "idle" | "success" | "error";
 
 export function CTA() {
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  const [submitStatus, setSubmitStatus] = useState<SubmitStatus>("idle");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
-    const formData = new FormData(event.currentTarget);
-    const name = String(formData.get("name") ?? "");
-    const phone = String(formData.get("phone") ?? "");
-    const age = String(formData.get("age") ?? "");
-    const goal = String(formData.get("goal") ?? "");
-    const message = String(formData.get("message") ?? "").trim();
-    const subject = `Zapis na lekcję SwimCore - ${name}`;
-    const body = [
-      "Dzień dobry,",
-      "",
-      "Chcę zapisać się na pierwszą lekcję SwimCore.",
-      "",
-      `Imię: ${name}`,
-      `Telefon: ${phone}`,
-      `Wiek uczestnika: ${age}`,
-      `Cel zajęć: ${goal}`,
-      `Wiadomość: ${message || "brak dodatkowej wiadomości"}`,
-      "",
-      "Proszę o kontakt w sprawie terminu.",
-    ].join("\n");
+    const form = event.currentTarget;
+    const formData = new FormData(form);
 
-    window.location.href = `mailto:${contactEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    setIsSubmitting(true);
+    setSubmitStatus("idle");
+
+    try {
+      const response = await fetch(formspreeEndpoint, {
+        method: "POST",
+        body: formData,
+        headers: {
+          Accept: "application/json",
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error("Formspree request failed");
+      }
+
+      form.reset();
+      setSubmitStatus("success");
+    } catch {
+      setSubmitStatus("error");
+    } finally {
+      setIsSubmitting(false);
+    }
   }
 
   return (
@@ -42,9 +61,10 @@ export function CTA() {
           <div className="pointer-events-none absolute -left-24 -top-28 h-72 w-72 rounded-full bg-orange/18 blur-3xl" />
           <div className="pointer-events-none absolute -bottom-28 -right-20 h-72 w-72 rounded-full bg-orange/8 blur-3xl" />
           <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(135deg,rgba(255,90,0,0.12),transparent_48%,rgba(255,255,255,0.03))]" />
+
           <div className="relative grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start lg:gap-14">
             <div>
-              <p className="text-xs font-black uppercase tracking-[0.2em] text-orange">Start your progress</p>
+              <p className="text-xs font-black uppercase tracking-[0.2em] text-orange">Kontakt</p>
               <h2 className="mt-4 text-balance text-4xl font-black leading-[1.02] tracking-[-0.075em] text-white sm:text-5xl lg:text-[3.8rem]">
                 Zacznij trenować z konkretnym celem.
               </h2>
@@ -58,10 +78,17 @@ export function CTA() {
                 </p>
                 <div className="mt-4 grid gap-3">
                   <a
-                    href={`mailto:${contactEmail}`}
+                    href={siteConfig.phoneHref}
                     className="inline-flex items-center justify-between gap-3 rounded-xl border border-line bg-card px-4 py-3 text-sm font-bold text-white transition-all duration-300 hover:border-orange/50 hover:text-orange"
                   >
-                    <span>{contactEmail}</span>
+                    <span>Zadzwoń: {siteConfig.phone}</span>
+                    <Icon name="arrow" className="h-4 w-4 shrink-0" />
+                  </a>
+                  <a
+                    href={`mailto:${siteConfig.email}`}
+                    className="inline-flex items-center justify-between gap-3 rounded-xl border border-line bg-card px-4 py-3 text-sm font-bold text-white transition-all duration-300 hover:border-orange/50 hover:text-orange"
+                  >
+                    <span>Email: {siteConfig.email}</span>
                     <Icon name="arrow" className="h-4 w-4 shrink-0" />
                   </a>
                   <a
@@ -73,7 +100,7 @@ export function CTA() {
                   >
                     <span className="inline-flex items-center gap-2">
                       <Icon name="instagram" className="h-5 w-5" />
-                      Instagram SwimCore
+                      Instagram: {siteConfig.social.instagramHandle}
                     </span>
                     <Icon name="arrow" className="h-4 w-4 shrink-0" />
                   </a>
@@ -85,11 +112,12 @@ export function CTA() {
               onSubmit={handleSubmit}
               className="grid gap-4 rounded-[1.5rem] border border-line bg-ink/80 p-5 shadow-none backdrop-blur-xl sm:grid-cols-2 sm:p-6"
             >
+              <input type="hidden" name="_subject" value="Nowe zgłoszenie SwimCore" />
               <label className="grid gap-2 text-xs font-bold text-white/75">
                 Imię
                 <input
                   required
-                  name="name"
+                  name="imię"
                   autoComplete="name"
                   className="min-w-0 rounded-xl border border-line bg-card px-4 py-3 text-sm font-semibold text-white outline-none transition placeholder:text-muted/70 focus:border-orange focus:ring-2 focus:ring-orange/25"
                   placeholder="Twoje imię"
@@ -100,7 +128,7 @@ export function CTA() {
                 <input
                   required
                   type="tel"
-                  name="phone"
+                  name="telefon"
                   autoComplete="tel"
                   inputMode="tel"
                   className="min-w-0 rounded-xl border border-line bg-card px-4 py-3 text-sm font-semibold text-white outline-none transition placeholder:text-muted/70 focus:border-orange focus:ring-2 focus:ring-orange/25"
@@ -111,7 +139,7 @@ export function CTA() {
                 Wiek uczestnika
                 <input
                   required
-                  name="age"
+                  name="wiek uczestnika"
                   className="min-w-0 rounded-xl border border-line bg-card px-4 py-3 text-sm font-semibold text-white outline-none transition placeholder:text-muted/70 focus:border-orange focus:ring-2 focus:ring-orange/25"
                   placeholder="np. 8 lat lub dorosły"
                 />
@@ -120,25 +148,22 @@ export function CTA() {
                 Cel zajęć
                 <select
                   required
-                  name="goal"
+                  name="cel zajęć"
                   defaultValue=""
                   className="min-w-0 rounded-xl border border-line bg-card px-4 py-3 text-sm font-semibold text-white outline-none transition focus:border-orange focus:ring-2 focus:ring-orange/25"
                 >
                   <option value="" disabled>
                     Wybierz cel
                   </option>
-                  <option>Nauka pływania dziecka</option>
-                  <option>Nauka pływania dorosłego</option>
-                  <option>Doskonalenie techniki</option>
-                  <option>Egzaminy straż / policja / wojsko</option>
-                  <option>Triathlon / Ironman</option>
-                  <option>Trening zawodniczy</option>
+                  {goalOptions.map((goal) => (
+                    <option key={goal}>{goal}</option>
+                  ))}
                 </select>
               </label>
               <label className="grid gap-2 text-xs font-bold text-white/75 sm:col-span-2">
                 Wiadomość
                 <textarea
-                  name="message"
+                  name="wiadomość"
                   rows={4}
                   className="min-w-0 resize-y rounded-xl border border-line bg-card px-4 py-3 text-sm font-semibold text-white outline-none transition placeholder:text-muted/70 focus:border-orange focus:ring-2 focus:ring-orange/25"
                   placeholder="Opcjonalnie: napisz, czego potrzebujesz."
@@ -147,13 +172,21 @@ export function CTA() {
               <div className="sm:col-span-2">
                 <button
                   type="submit"
-                  className="w-full rounded-full bg-orange px-6 py-3.5 text-sm font-black text-ink shadow-glow transition-all duration-300 hover:-translate-y-1 hover:brightness-110 focus:outline-none focus:ring-2 focus:ring-orange focus:ring-offset-2 focus:ring-offset-navy"
+                  disabled={isSubmitting}
+                  className="w-full rounded-full bg-orange px-6 py-3.5 text-sm font-black text-ink shadow-glow transition-all duration-300 hover:-translate-y-1 hover:brightness-110 focus:outline-none focus:ring-2 focus:ring-orange focus:ring-offset-2 focus:ring-offset-ink disabled:cursor-not-allowed disabled:opacity-70 disabled:hover:translate-y-0"
                 >
-                  Wyślij zgłoszenie
+                  {isSubmitting ? "Wysyłanie..." : "Wyślij zgłoszenie"}
                 </button>
-                <p className="mt-3 text-center text-[11px] font-semibold leading-5 text-white/50">
-                  Przycisk otworzy Twój program pocztowy z gotową wiadomością.
-                </p>
+                {submitStatus === "success" ? (
+                  <p className="mt-4 rounded-2xl border border-orange/25 bg-orange/10 px-4 py-3 text-center text-xs font-bold leading-6 text-white">
+                    Dziękujemy! Odezwiemy się w sprawie pierwszej lekcji.
+                  </p>
+                ) : null}
+                {submitStatus === "error" ? (
+                  <p className="mt-4 rounded-2xl border border-red-500/30 bg-red-500/10 px-4 py-3 text-center text-xs font-bold leading-6 text-white">
+                    Coś poszło nie tak. Zadzwoń: {siteConfig.phone}
+                  </p>
+                ) : null}
               </div>
             </form>
           </div>

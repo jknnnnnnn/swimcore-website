@@ -5,98 +5,116 @@ import { Container } from "./Container";
 import { Icon } from "./Icons";
 import { SectionHeading } from "./SectionHeading";
 
-const founderPhotoSrc = "/images/igor-szczerba.jpg";
-const hasFounderPhoto = existsSync(join(process.cwd(), "public", "images", "igor-szczerba.jpg"));
+type Instructor = {
+  name: string;
+  initials: string;
+  role: string;
+  description: string;
+  tags: string[];
+  photo?: {
+    src: string;
+    alt: string;
+    fileName: string;
+  };
+};
 
-const achievements = [
-  "Medalista Mistrzostw Polski Juniorów",
-  "Medalista Akademickich Mistrzostw Polski",
-  "Instruktor pływania",
-  "2 lata doświadczenia w nauczaniu",
+const instructors: Instructor[] = [
+  {
+    name: "Igor Szczerba",
+    initials: "IS",
+    role: "Założyciel SwimCore • Instruktor pływania",
+    description:
+      "Medalista Mistrzostw Polski Juniorów i Akademickich Mistrzostw Polski. Od 2 lat prowadzi zajęcia dla dzieci, dorosłych i sportowców — od pierwszych lekcji w wodzie po doskonalenie techniki zawodniczej.",
+    tags: ["Medalista MP Juniorów", "Medalista AMP", "Instruktor pływania", "Technika i sport"],
+    photo: {
+      src: "/images/igor-szczerba.jpg",
+      alt: "Igor Szczerba, założyciel SwimCore i instruktor pływania",
+      fileName: "igor-szczerba.jpg",
+    },
+  },
 ];
+
+function hasPublicImage(fileName: string) {
+  return existsSync(join(process.cwd(), "public", "images", fileName));
+}
 
 export function About() {
   return (
     <section id="o-nas" className="scroll-mt-16 bg-ink py-24 sm:py-28 lg:py-32">
       <Container>
-        <div className="grid items-center gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:gap-16">
-          <div className="relative mx-auto w-full max-w-[480px]">
-            <div className="relative aspect-[0.82] overflow-hidden rounded-[2rem] border border-line bg-card shadow-soft">
-              <div className="pointer-events-none absolute -left-24 -top-24 h-72 w-72 rounded-full bg-orange/18 blur-3xl" />
-              <div className="pointer-events-none absolute -bottom-28 -right-20 h-72 w-72 rounded-full bg-orange/10 blur-3xl" />
-              <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.025)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.025)_1px,transparent_1px)] bg-[size:56px_56px]" />
+        <SectionHeading
+          eyebrow="Kadra"
+          title="Nasza kadra"
+          description="Zajęcia SwimCore prowadzą instruktorzy z doświadczeniem sportowym i indywidualnym podejściem do nauki pływania."
+          centered
+        />
 
-              {hasFounderPhoto ? (
-                <>
-                  <Image
-                    src={founderPhotoSrc}
-                    alt="Igor Szczerba, założyciel SwimCore"
-                    fill
-                    sizes="(max-width: 1024px) 90vw, 34vw"
-                    className="object-cover object-center"
-                  />
-                  <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(5,5,5,0.05)_0%,rgba(5,5,5,0.78)_100%)]" />
-                  <div className="relative flex h-full flex-col justify-between p-7 sm:p-8">
-                    <div className="inline-flex w-fit rounded-full border border-orange/25 bg-black/45 px-3 py-1 text-[10px] font-black uppercase tracking-[0.16em] text-orange backdrop-blur-md">
-                      Założyciel
-                    </div>
-                    <div className="rounded-2xl border border-line bg-ink/72 p-5 backdrop-blur-xl">
-                      <p className="text-xl font-black tracking-[-0.04em] text-white">Igor Szczerba</p>
-                      <p className="mt-1 text-sm font-bold text-muted">Założyciel SwimCore</p>
-                    </div>
-                  </div>
-                </>
-              ) : (
-                <div className="relative flex h-full flex-col justify-between p-7 sm:p-8">
-                  <div className="inline-flex w-fit rounded-full border border-orange/25 bg-orange/10 px-3 py-1 text-[10px] font-black uppercase tracking-[0.16em] text-orange">
-                    Założyciel
-                  </div>
-                  <div>
-                    <div className="text-[7rem] font-black leading-none tracking-[-0.12em] text-white sm:text-[8rem]">
-                      IS
-                    </div>
-                    <div className="mt-6 rounded-2xl border border-line bg-ink/70 p-5 backdrop-blur-xl">
-                      <p className="text-xl font-black tracking-[-0.04em] text-white">Igor Szczerba</p>
-                      <p className="mt-1 text-sm font-bold text-muted">Założyciel SwimCore</p>
-                    </div>
-                  </div>
-                </div>
-              )}
-            </div>
-            <span className="absolute -right-5 -top-5 grid h-20 w-20 place-items-center rounded-3xl bg-orange text-ink shadow-glow sm:-right-8 sm:top-10">
-              <Icon name="medal" className="h-8 w-8" />
-            </span>
-          </div>
+        <div className="mx-auto mt-12 grid max-w-5xl gap-6 lg:mt-14">
+          {instructors.map((instructor) => {
+            const showPhoto = instructor.photo ? hasPublicImage(instructor.photo.fileName) : false;
 
-          <div>
-            <SectionHeading eyebrow="O założycielu" title="Poznaj założyciela SwimCore" />
-            <h3 className="mt-6 text-2xl font-black tracking-[-0.04em] text-white">Igor Szczerba</h3>
-            <p className="mt-4 text-sm leading-7 text-muted sm:text-base">
-              Pływanie wyczynowe trenuję od 4 klasy szkoły podstawowej. Jestem medalistą Mistrzostw
-              Polski Juniorów oraz Akademickich Mistrzostw Polski.
-            </p>
-            <p className="mt-4 text-sm leading-7 text-muted/80 sm:text-base">
-              Od 2 lat prowadzę lekcje pływania dla dzieci, dorosłych i sportowców. Pomagam zarówno
-              osobom stawiającym pierwsze kroki w wodzie, jak i zawodnikom pracującym nad techniką.
-            </p>
-            <p className="mt-4 text-sm leading-7 text-muted/80 sm:text-base">
-              SwimCore to nauka pływania oparta na konkretnym celu, indywidualnym podejściu i realnych
-              postępach.
-            </p>
-            <div className="mt-7 grid gap-3 sm:grid-cols-2">
-              {achievements.map((achievement) => (
-                <div
-                  key={achievement}
-                  className="flex items-center gap-3 rounded-2xl border border-line bg-card px-4 py-3 text-xs font-extrabold leading-5 text-white shadow-none transition-all duration-300 hover:-translate-y-1 hover:border-orange/45 hover:shadow-glow"
-                >
-                  <span className="grid h-8 w-8 shrink-0 place-items-center rounded-lg bg-orange text-ink">
-                    <Icon name="check" className="h-4 w-4" />
+            return (
+              <article
+                key={instructor.name}
+                className="grid overflow-hidden rounded-[2rem] border border-line bg-card shadow-none transition-all duration-300 hover:-translate-y-1 hover:border-orange/45 hover:shadow-glow lg:grid-cols-[0.9fr_1.1fr]"
+              >
+                <div className="relative min-h-[420px] overflow-hidden bg-ink sm:min-h-[500px] lg:min-h-full">
+                  <div className="pointer-events-none absolute -left-24 -top-24 h-72 w-72 rounded-full bg-orange/18 blur-3xl" />
+                  <div className="pointer-events-none absolute -bottom-28 -right-20 h-72 w-72 rounded-full bg-orange/10 blur-3xl" />
+                  <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.025)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.025)_1px,transparent_1px)] bg-[size:56px_56px]" />
+
+                  {showPhoto && instructor.photo ? (
+                    <>
+                      <Image
+                        src={instructor.photo.src}
+                        alt={instructor.photo.alt}
+                        fill
+                        sizes="(max-width: 1024px) 92vw, 34vw"
+                        className="object-cover object-center"
+                      />
+                      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(5,5,5,0.04)_0%,rgba(5,5,5,0.72)_100%)]" />
+                    </>
+                  ) : (
+                    <div className="relative flex h-full min-h-[420px] items-center justify-center p-8 sm:min-h-[500px]">
+                      <div className="text-[7rem] font-black leading-none tracking-[-0.12em] text-white sm:text-[9rem]">
+                        {instructor.initials}
+                      </div>
+                    </div>
+                  )}
+
+                  <div className="absolute left-6 top-6 inline-flex rounded-full border border-orange/25 bg-black/45 px-3 py-1 text-[10px] font-black uppercase tracking-[0.16em] text-orange backdrop-blur-md">
+                    Instruktor
+                  </div>
+                  <span className="absolute bottom-6 right-6 grid h-16 w-16 place-items-center rounded-2xl bg-orange text-ink shadow-glow">
+                    <Icon name="medal" className="h-7 w-7" />
                   </span>
-                  {achievement}
                 </div>
-              ))}
-            </div>
-          </div>
+
+                <div className="p-6 sm:p-8 lg:p-10">
+                  <p className="text-[10px] font-black uppercase tracking-[0.18em] text-orange">SwimCore Team</p>
+                  <h3 className="mt-4 text-3xl font-black tracking-[-0.06em] text-white sm:text-4xl">
+                    {instructor.name}
+                  </h3>
+                  <p className="mt-3 text-sm font-black text-orange">{instructor.role}</p>
+                  <p className="mt-6 text-sm leading-7 text-muted sm:text-base">{instructor.description}</p>
+
+                  <div className="mt-8 grid gap-3 sm:grid-cols-2">
+                    {instructor.tags.map((tag) => (
+                      <div
+                        key={tag}
+                        className="flex items-center gap-3 rounded-2xl border border-line bg-ink px-4 py-3 text-xs font-extrabold leading-5 text-white transition-all duration-300 hover:border-orange/45"
+                      >
+                        <span className="grid h-8 w-8 shrink-0 place-items-center rounded-lg bg-orange text-ink">
+                          <Icon name="check" className="h-4 w-4" />
+                        </span>
+                        {tag}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </article>
+            );
+          })}
         </div>
       </Container>
     </section>

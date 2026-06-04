@@ -29,14 +29,14 @@ export function Footer() {
             </a>
           </nav>
         </div>
-        <div className="flex flex-col gap-3 pt-6 text-xs font-semibold text-white/45 sm:flex-row sm:items-center sm:justify-between">
+        <div className="flex flex-col gap-5 pt-6 text-xs font-semibold text-white/45 sm:flex-row sm:items-start sm:justify-between">
           <p>© {new Date().getFullYear()} SwimCore. Wszystkie prawa zastrzeżone.</p>
           <div className="flex flex-col gap-2 sm:items-end">
             <span>Tarnów</span>
-            <a
-              href={`mailto:${siteConfig.email}`}
-              className="transition-colors hover:text-orange"
-            >
+            <a href={siteConfig.phoneHref} className="transition-colors hover:text-orange">
+              {siteConfig.phone}
+            </a>
+            <a href={`mailto:${siteConfig.email}`} className="transition-colors hover:text-orange">
               {siteConfig.email}
             </a>
             <a
@@ -47,7 +47,7 @@ export function Footer() {
               className="inline-flex items-center gap-2 transition-colors hover:text-orange"
             >
               <Icon name="instagram" className="h-4 w-4" />
-              Instagram
+              Instagram {siteConfig.social.instagramHandle}
             </a>
           </div>
         </div>
