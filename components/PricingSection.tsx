@@ -4,84 +4,57 @@ import { SectionHeading } from "./SectionHeading";
 
 const plans = [
   {
-    name: "Instruktor SwimCore",
-    description: "Trening dopasowany do poziomu i wybranego celu.",
-    prices: [
-      { label: "Lekcja indywidualna", value: "110 zł" },
-      { label: "Lekcja w dwójce", value: "130 zł", suffix: "/ lekcja" },
-    ],
+    name: "Lekcja indywidualna",
+    price: "110 zł",
+    time: "/ 45 min",
+    description: "Pełne skupienie instruktora na jednej osobie i jej celu.",
   },
   {
-    name: "Igor Szczerba",
-    description: "Zajęcia prowadzone bezpośrednio przez założyciela SwimCore.",
-    badge: "Założyciel / trener prowadzący",
-    featured: true,
-    prices: [
-      { label: "Lekcja indywidualna", value: "120 zł" },
-      { label: "Lekcja w dwójce", value: "140 zł", suffix: "/ lekcja" },
-    ],
+    name: "Lekcja 2-osobowa",
+    price: "130 zł",
+    time: "/ 45 min",
+    description: "Dobry balans ceny, uwagi instruktora i pracy w parze.",
+  },
+  {
+    name: "Lekcja 3-osobowa",
+    price: "150 zł",
+    time: "/ 45 min",
+    description: "Mała grupa, wspólny rytm nauki i regularny progres.",
   },
 ];
 
 export function PricingSection() {
   return (
-    <section id="cennik" className="scroll-mt-16 bg-ink py-24 sm:py-28 lg:py-36">
+    <section id="cennik" className="scroll-mt-16 bg-ink py-20 sm:py-24 lg:py-32">
       <Container>
         <SectionHeading
           eyebrow="Cennik"
-          title="Wybierz wariant treningu."
-          description="Przejrzyste ceny zajęć. Po zgłoszeniu dobierzemy instruktora i termin dopasowany do Twojego celu."
+          title="Prosty cennik zajęć."
+          description="Jeden przejrzysty system cenowy dla zajęć SwimCore. Po zgłoszeniu dobierzemy formę lekcji do poziomu i celu."
           centered
         />
-        <div className="mx-auto mt-10 grid max-w-4xl gap-5 md:grid-cols-2 lg:mt-14">
+        <div className="mx-auto mt-10 grid max-w-5xl gap-4 md:grid-cols-3 lg:mt-12">
           {plans.map((plan) => (
             <article
               key={plan.name}
-              className={`relative flex flex-col overflow-hidden rounded-[1.75rem] border p-6 shadow-none backdrop-blur-xl transition-all duration-300 hover:-translate-y-1.5 hover:shadow-glow sm:p-7 ${
-                plan.featured
-                  ? "border-orange/70 bg-[linear-gradient(145deg,rgba(255,90,0,0.16),rgba(14,14,14,0.98))]"
-                  : "border-line bg-card hover:border-orange/45"
-              }`}
+              className="relative flex min-h-[320px] flex-col overflow-hidden rounded-[1.75rem] border border-line bg-card p-6 shadow-none transition-all duration-300 hover:-translate-y-1.5 hover:border-orange/55 hover:shadow-glow sm:p-7"
             >
-              {plan.featured ? (
-                <div className="pointer-events-none absolute -right-20 -top-24 h-52 w-52 rounded-full bg-orange/20 blur-3xl" />
-              ) : null}
               <div className="relative">
-                {plan.badge ? (
-                  <span className="inline-flex rounded-full border border-orange/30 bg-orange/10 px-3 py-1 text-[10px] font-black uppercase tracking-[0.14em] text-orange">
-                    {plan.badge}
-                  </span>
-                ) : (
-                  <span className="inline-flex rounded-full border border-line bg-ink px-3 py-1 text-[10px] font-black uppercase tracking-[0.14em] text-muted">
-                    SwimCore Team
-                  </span>
-                )}
-                <h3 className="mt-5 text-2xl font-black tracking-[-0.04em] text-white">{plan.name}</h3>
+                <span className="inline-flex rounded-full border border-line bg-ink px-3 py-1 text-[10px] font-black uppercase tracking-[0.14em] text-muted">
+                  SwimCore
+                </span>
+                <h3 className="mt-5 text-xl font-black tracking-[-0.04em] text-white">{plan.name}</h3>
                 <p className="mt-3 min-h-12 text-sm leading-6 text-muted">{plan.description}</p>
               </div>
 
-              <div className="relative mt-7 grid gap-3">
-                {plan.prices.map((price) => (
-                  <div
-                    key={price.label}
-                    className="flex items-center justify-between gap-4 rounded-2xl border border-line bg-ink px-4 py-4"
-                  >
-                    <span className="text-sm font-bold leading-5 text-muted">{price.label}</span>
-                    <span className="shrink-0 text-right">
-                      <span className="block text-lg font-black text-white">{price.value}</span>
-                      {price.suffix ? <span className="block text-[10px] font-bold text-muted">{price.suffix}</span> : null}
-                    </span>
-                  </div>
-                ))}
+              <div className="relative mt-8">
+                <span className="text-4xl font-black tracking-[-0.06em] text-white">{plan.price}</span>
+                <span className="ml-2 text-sm font-bold text-muted">{plan.time}</span>
               </div>
 
               <a
                 href="#kontakt"
-                className={`relative mt-7 inline-flex items-center justify-center gap-2 rounded-full px-6 py-3.5 text-sm font-black transition-all duration-300 hover:-translate-y-1 hover:brightness-110 ${
-                  plan.featured
-                    ? "bg-orange text-ink shadow-glow"
-                    : "border border-line bg-ink text-white shadow-none hover:border-orange hover:bg-orange hover:text-ink hover:shadow-glow"
-                }`}
+                className="relative mt-auto inline-flex items-center justify-center gap-2 rounded-full border border-line bg-ink px-6 py-3.5 text-sm font-black text-white transition-all duration-300 hover:-translate-y-1 hover:border-orange hover:bg-orange hover:text-ink hover:shadow-glow"
               >
                 Zapisz się
                 <Icon name="arrow" className="h-5 w-5" />
@@ -90,7 +63,7 @@ export function PricingSection() {
           ))}
         </div>
         <p className="mx-auto mt-6 max-w-2xl text-center text-xs font-semibold leading-6 text-muted">
-          Cena nie obejmuje biletu wejścia na basen, jeśli jest wymagany przez obiekt.
+          Cena nie obejmuje wejścia na basen.
         </p>
       </Container>
     </section>

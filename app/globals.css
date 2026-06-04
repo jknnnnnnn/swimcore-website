@@ -70,10 +70,12 @@ textarea {
 
 .logo-img {
   display: block;
+  width: 300px;
   height: auto;
-  width: 180px;
-  max-width: 46vw;
+  max-width: 58vw;
   object-fit: contain;
+  object-position: center;
+  mix-blend-mode: lighten;
   background: transparent;
 }
 
@@ -92,7 +94,8 @@ textarea {
   }
 
   .logo-img {
-    width: 140px;
+    width: 196px;
+    height: auto;
   }
 }
 

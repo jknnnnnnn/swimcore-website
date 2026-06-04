@@ -21,7 +21,7 @@ export function CTA() {
     const body = [
       "Dzień dobry,",
       "",
-      "chcę zapisać się na pierwszą lekcję SwimCore.",
+      "Chcę zapisać się na pierwszą lekcję SwimCore.",
       "",
       `Imię: ${name}`,
       `Telefon: ${phone}`,
@@ -36,7 +36,7 @@ export function CTA() {
   }
 
   return (
-    <section id="kontakt" className="scroll-mt-12 bg-ink py-24 sm:py-28">
+    <section id="kontakt" className="scroll-mt-12 bg-ink py-20 sm:py-24">
       <Container>
         <div className="relative overflow-hidden rounded-[2rem] border border-line bg-card px-6 py-12 shadow-none sm:px-10 sm:py-16 lg:px-16 lg:py-20">
           <div className="pointer-events-none absolute -left-24 -top-28 h-72 w-72 rounded-full bg-orange/18 blur-3xl" />
@@ -51,22 +51,34 @@ export function CTA() {
               <p className="mt-4 max-w-xl text-sm leading-7 text-white/65 sm:text-base">
                 Wypełnij krótki formularz. Oddzwonimy, dobierzemy poziom i ustalimy pierwszy termin.
               </p>
-              <a
-                href={`mailto:${contactEmail}`}
-                className="mt-7 inline-block text-sm font-bold text-white/55 transition-colors hover:text-orange"
-              >
-                {contactEmail}
-              </a>
-              <a
-                href={siteConfig.social.instagram}
-                target="_blank"
-                rel="noreferrer"
-                aria-label="Instagram SwimCore"
-                className="mt-4 inline-flex items-center gap-2 text-sm font-bold text-white/55 transition-colors hover:text-orange"
-              >
-                <Icon name="instagram" className="h-5 w-5" />
-                Instagram SwimCore
-              </a>
+
+              <div className="mt-8 rounded-2xl border border-line bg-ink/70 p-5">
+                <p className="text-[10px] font-black uppercase tracking-[0.16em] text-orange">
+                  Szybki kontakt
+                </p>
+                <div className="mt-4 grid gap-3">
+                  <a
+                    href={`mailto:${contactEmail}`}
+                    className="inline-flex items-center justify-between gap-3 rounded-xl border border-line bg-card px-4 py-3 text-sm font-bold text-white transition-all duration-300 hover:border-orange/50 hover:text-orange"
+                  >
+                    <span>{contactEmail}</span>
+                    <Icon name="arrow" className="h-4 w-4 shrink-0" />
+                  </a>
+                  <a
+                    href={siteConfig.social.instagram}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label="Instagram SwimCore"
+                    className="inline-flex items-center justify-between gap-3 rounded-xl border border-line bg-card px-4 py-3 text-sm font-bold text-white transition-all duration-300 hover:border-orange/50 hover:text-orange"
+                  >
+                    <span className="inline-flex items-center gap-2">
+                      <Icon name="instagram" className="h-5 w-5" />
+                      Instagram SwimCore
+                    </span>
+                    <Icon name="arrow" className="h-4 w-4 shrink-0" />
+                  </a>
+                </div>
+              </div>
             </div>
 
             <form

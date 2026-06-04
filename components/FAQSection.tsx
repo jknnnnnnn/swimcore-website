@@ -52,7 +52,7 @@ export function FAQSection() {
             >
               <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-5 text-left text-sm font-black leading-6 text-white transition-colors duration-300 hover:text-orange focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-orange sm:px-6 sm:text-base [&::-webkit-details-marker]:hidden">
                 {item.question}
-                <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full border border-orange/20 bg-orange/10 text-xl font-light text-orange transition-transform duration-300 group-open:rotate-45">
+                <span className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-orange/20 bg-orange/10 text-xl font-light leading-none text-orange transition-transform duration-300 group-open:rotate-45">
                   +
                 </span>
               </summary>
