@@ -32,7 +32,7 @@ export function Hero() {
               </a>
               <a
                 href="#oferta"
-                className="inline-flex items-center justify-center rounded-full border border-orange/45 bg-ink px-6 py-3.5 text-sm font-black text-white shadow-none transition-all duration-300 hover:-translate-y-1 hover:border-orange hover:bg-orange/10"
+                className="hidden items-center justify-center rounded-full border border-orange/45 bg-ink px-6 py-3.5 text-sm font-black text-white shadow-none transition-all duration-300 hover:-translate-y-1 hover:border-orange hover:bg-orange/10 sm:inline-flex"
               >
                 Zobacz ofertę
               </a>
