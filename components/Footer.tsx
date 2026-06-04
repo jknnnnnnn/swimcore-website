@@ -5,9 +5,9 @@ import { Logo } from "./Logo";
 
 export function Footer() {
   return (
-    <footer className="bg-navy py-10 text-white">
+    <footer className="bg-ink py-10 text-white">
       <Container>
-        <div className="flex flex-col gap-8 border-b border-white/10 pb-8 sm:flex-row sm:items-center sm:justify-between">
+        <div className="flex flex-col gap-8 border-b border-line pb-8 sm:flex-row sm:items-center sm:justify-between">
           <div>
             <Logo footer />
             <p className="mt-4 max-w-sm text-sm leading-6 text-white/55">

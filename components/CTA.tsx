@@ -36,12 +36,12 @@ export function CTA() {
   }
 
   return (
-    <section id="kontakt" className="scroll-mt-12 bg-white py-20 sm:py-24">
+    <section id="kontakt" className="scroll-mt-12 bg-ink py-24 sm:py-28">
       <Container>
-        <div className="relative overflow-hidden rounded-[2rem] border border-ink/10 bg-ink px-6 py-12 shadow-soft sm:px-10 sm:py-16 lg:px-16 lg:py-20">
-          <div className="pointer-events-none absolute -left-24 -top-28 h-72 w-72 rounded-full bg-orange/30 blur-3xl" />
-          <div className="pointer-events-none absolute -bottom-28 -right-20 h-72 w-72 rounded-full bg-white/10 blur-3xl" />
-          <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(135deg,rgba(241,90,36,0.18),transparent_48%,rgba(255,255,255,0.06))]" />
+        <div className="relative overflow-hidden rounded-[2rem] border border-line bg-card px-6 py-12 shadow-none sm:px-10 sm:py-16 lg:px-16 lg:py-20">
+          <div className="pointer-events-none absolute -left-24 -top-28 h-72 w-72 rounded-full bg-orange/18 blur-3xl" />
+          <div className="pointer-events-none absolute -bottom-28 -right-20 h-72 w-72 rounded-full bg-orange/8 blur-3xl" />
+          <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(135deg,rgba(255,90,0,0.12),transparent_48%,rgba(255,255,255,0.03))]" />
           <div className="relative grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start lg:gap-14">
             <div>
               <p className="text-xs font-black uppercase tracking-[0.2em] text-orange">Start your progress</p>
@@ -71,7 +71,7 @@ export function CTA() {
 
             <form
               onSubmit={handleSubmit}
-              className="grid gap-4 rounded-[1.5rem] border border-white/10 bg-white/[0.06] p-5 shadow-card backdrop-blur-xl sm:grid-cols-2 sm:p-6"
+              className="grid gap-4 rounded-[1.5rem] border border-line bg-ink/80 p-5 shadow-none backdrop-blur-xl sm:grid-cols-2 sm:p-6"
             >
               <label className="grid gap-2 text-xs font-bold text-white/75">
                 Imię
@@ -79,7 +79,7 @@ export function CTA() {
                   required
                   name="name"
                   autoComplete="name"
-                  className="min-w-0 rounded-xl border border-white/10 bg-ink/70 px-4 py-3 text-sm font-semibold text-white outline-none transition focus:border-orange focus:ring-2 focus:ring-orange/25"
+                  className="min-w-0 rounded-xl border border-line bg-card px-4 py-3 text-sm font-semibold text-white outline-none transition placeholder:text-muted/70 focus:border-orange focus:ring-2 focus:ring-orange/25"
                   placeholder="Twoje imię"
                 />
               </label>
@@ -91,7 +91,7 @@ export function CTA() {
                   name="phone"
                   autoComplete="tel"
                   inputMode="tel"
-                  className="min-w-0 rounded-xl border border-white/10 bg-ink/70 px-4 py-3 text-sm font-semibold text-white outline-none transition focus:border-orange focus:ring-2 focus:ring-orange/25"
+                  className="min-w-0 rounded-xl border border-line bg-card px-4 py-3 text-sm font-semibold text-white outline-none transition placeholder:text-muted/70 focus:border-orange focus:ring-2 focus:ring-orange/25"
                   placeholder="Numer telefonu"
                 />
               </label>
@@ -100,7 +100,7 @@ export function CTA() {
                 <input
                   required
                   name="age"
-                  className="min-w-0 rounded-xl border border-white/10 bg-ink/70 px-4 py-3 text-sm font-semibold text-white outline-none transition focus:border-orange focus:ring-2 focus:ring-orange/25"
+                  className="min-w-0 rounded-xl border border-line bg-card px-4 py-3 text-sm font-semibold text-white outline-none transition placeholder:text-muted/70 focus:border-orange focus:ring-2 focus:ring-orange/25"
                   placeholder="np. 8 lat lub dorosły"
                 />
               </label>
@@ -110,7 +110,7 @@ export function CTA() {
                   required
                   name="goal"
                   defaultValue=""
-                  className="min-w-0 rounded-xl border border-white/10 bg-ink/70 px-4 py-3 text-sm font-semibold text-white outline-none transition focus:border-orange focus:ring-2 focus:ring-orange/25"
+                  className="min-w-0 rounded-xl border border-line bg-card px-4 py-3 text-sm font-semibold text-white outline-none transition focus:border-orange focus:ring-2 focus:ring-orange/25"
                 >
                   <option value="" disabled>
                     Wybierz cel
@@ -128,14 +128,14 @@ export function CTA() {
                 <textarea
                   name="message"
                   rows={4}
-                  className="min-w-0 resize-y rounded-xl border border-white/10 bg-ink/70 px-4 py-3 text-sm font-semibold text-white outline-none transition focus:border-orange focus:ring-2 focus:ring-orange/25"
+                  className="min-w-0 resize-y rounded-xl border border-line bg-card px-4 py-3 text-sm font-semibold text-white outline-none transition placeholder:text-muted/70 focus:border-orange focus:ring-2 focus:ring-orange/25"
                   placeholder="Opcjonalnie: napisz, czego potrzebujesz."
                 />
               </label>
               <div className="sm:col-span-2">
                 <button
                   type="submit"
-                  className="w-full rounded-full bg-orange px-6 py-3.5 text-sm font-black text-white shadow-glow transition-all duration-300 hover:-translate-y-1 hover:brightness-110 focus:outline-none focus:ring-2 focus:ring-orange focus:ring-offset-2 focus:ring-offset-navy"
+                  className="w-full rounded-full bg-orange px-6 py-3.5 text-sm font-black text-ink shadow-glow transition-all duration-300 hover:-translate-y-1 hover:brightness-110 focus:outline-none focus:ring-2 focus:ring-orange focus:ring-offset-2 focus:ring-offset-navy"
                 >
                   Wyślij zgłoszenie
                 </button>

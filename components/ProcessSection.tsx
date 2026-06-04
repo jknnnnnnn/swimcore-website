@@ -31,13 +31,13 @@ const steps: { title: string; description: string; icon: IconName }[] = [
 
 export function ProcessSection() {
   return (
-    <section id="proces" className="relative scroll-mt-16 overflow-hidden bg-light py-24 text-ink sm:py-28 lg:py-36">
-      <div className="pointer-events-none absolute -left-32 top-1/3 h-80 w-80 rounded-full bg-orange/15 blur-3xl" />
-      <div className="pointer-events-none absolute -right-32 bottom-0 h-80 w-80 rounded-full bg-white blur-3xl" />
+    <section id="proces" className="relative scroll-mt-16 overflow-hidden bg-ink py-28 text-white sm:py-32 lg:py-40">
+      <div className="pointer-events-none absolute -left-32 top-1/3 h-80 w-80 rounded-full bg-orange/10 blur-3xl" />
+      <div className="pointer-events-none absolute -right-32 bottom-0 h-80 w-80 rounded-full bg-orange/5 blur-3xl" />
       <Container className="relative">
         <div className="max-w-3xl">
           <p className="text-xs font-black uppercase tracking-[0.2em] text-orange">Prosty proces</p>
-          <h2 className="mt-4 text-balance text-4xl font-black leading-[1.02] tracking-[-0.075em] text-ink sm:text-5xl lg:text-[3.6rem]">
+          <h2 className="mt-4 text-balance text-4xl font-black leading-[1.02] tracking-[-0.075em] text-white sm:text-5xl lg:text-[3.6rem]">
             Jak wygląda współpraca?
           </h2>
           <p className="mt-5 max-w-xl text-sm leading-7 text-muted sm:text-base">
@@ -49,15 +49,15 @@ export function ProcessSection() {
           {steps.map((step, index) => (
             <article
               key={step.title}
-              className="relative rounded-[1.5rem] border border-ink/10 bg-white p-5 shadow-card transition-all duration-300 hover:-translate-y-2 hover:border-orange/40 hover:shadow-glow"
+              className="relative rounded-[1.5rem] border border-line bg-card p-5 shadow-none transition-all duration-300 hover:-translate-y-2 hover:border-orange/40 hover:shadow-glow"
             >
               <div className="flex items-center justify-between gap-4">
-                <span className="grid h-12 w-12 place-items-center rounded-2xl bg-orange text-white shadow-glow">
+                <span className="grid h-12 w-12 place-items-center rounded-2xl bg-orange text-ink shadow-glow">
                   <Icon name={step.icon} className="h-6 w-6" />
                 </span>
-                <span className="text-lg font-black tracking-[-0.05em] text-ink/15">0{index + 1}</span>
+                <span className="text-lg font-black tracking-[-0.05em] text-white/10">0{index + 1}</span>
               </div>
-              <h3 className="mt-8 text-base font-black tracking-[-0.035em] text-ink">{step.title}</h3>
+              <h3 className="mt-8 text-base font-black tracking-[-0.035em] text-white">{step.title}</h3>
               <p className="mt-2 text-sm leading-6 text-muted">{step.description}</p>
             </article>
           ))}

@@ -23,6 +23,18 @@ const mobileLinks = [
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [hasScrolled, setHasScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setHasScrolled(window.scrollY > 12);
+    };
+
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   useEffect(() => {
     if (!isOpen) {
@@ -45,15 +57,29 @@ export function Navbar() {
   }, [isOpen]);
 
   return (
-    <header className="absolute inset-x-0 top-0 z-40 bg-[linear-gradient(90deg,#EC6B3B_0%,#F15A24_62%,#FF6B00_100%)] text-white shadow-[0_14px_42px_rgba(236,107,59,0.24)]">
-      <Container className="flex h-[88px] items-center justify-between">
-        <Logo />
+    <header
+      className={`sticky inset-x-0 top-0 z-40 border-b border-line text-white backdrop-blur-xl transition-all duration-500 ${
+        hasScrolled
+          ? "bg-[rgba(5,5,5,0.92)] shadow-[0_16px_38px_rgba(0,0,0,0.22)]"
+          : "bg-[#050505] shadow-none"
+      }`}
+    >
+      <Container
+        className={`flex items-center justify-between transition-[height] duration-500 ${
+          hasScrolled ? "h-[64px] lg:h-[68px]" : "h-[72px] lg:h-[76px]"
+        }`}
+      >
+        <div
+          className={`transition-transform duration-500 ${hasScrolled ? "scale-[0.94]" : "scale-100"}`}
+        >
+          <Logo />
+        </div>
         <nav aria-label="Główna nawigacja" className="hidden items-center gap-7 lg:flex">
           {desktopLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className="rounded-full px-3 py-2 text-sm font-bold text-white/85 transition-all duration-300 hover:bg-white/10 hover:text-white"
+              className="rounded-full px-3 py-2 text-sm font-bold text-white/82 transition-colors duration-300 hover:text-orange"
             >
               {link.label}
             </a>
@@ -65,13 +91,13 @@ export function Navbar() {
             target="_blank"
             rel="noreferrer"
             aria-label="Instagram SwimCore"
-            className="grid h-11 w-11 place-items-center rounded-full border border-white/25 text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-ink hover:text-white"
+            className="grid h-10 w-10 place-items-center rounded-full border border-white/15 text-white transition-all duration-300 hover:-translate-y-0.5 hover:border-orange/60 hover:bg-white/5 hover:text-orange"
           >
             <Icon name="instagram" className="h-5 w-5" />
           </a>
           <a
             href="#kontakt"
-            className="rounded-full bg-ink px-5 py-2.5 text-sm font-extrabold text-white shadow-[0_14px_32px_rgba(17,17,17,0.28)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#1A1A1A]"
+            className="rounded-full border border-orange bg-orange px-5 py-2.5 text-sm font-extrabold text-ink shadow-none transition-all duration-300 hover:-translate-y-0.5 hover:bg-ink hover:text-white hover:shadow-[0_0_0_1px_rgba(255,90,0,0.9)]"
           >
             Zapisz się
           </a>
@@ -82,7 +108,7 @@ export function Navbar() {
           aria-expanded={isOpen}
           aria-controls="mobile-menu"
           onClick={() => setIsOpen((current) => !current)}
-          className="relative z-50 grid h-12 w-12 place-items-center rounded-full border border-white/30 bg-ink/15 text-white shadow-card backdrop-blur-xl transition-all duration-300 hover:bg-ink/25 focus:outline-none focus:ring-2 focus:ring-white/80 lg:hidden"
+          className="relative z-50 grid h-11 w-11 place-items-center rounded-full border border-line bg-card text-white shadow-none transition-all duration-300 hover:border-orange/60 hover:bg-white/5 hover:text-orange focus:outline-none focus:ring-2 focus:ring-orange/40 lg:hidden"
         >
           <span className="sr-only">{isOpen ? "Zamknij menu" : "Otwórz menu"}</span>
           <span className="grid gap-1.5">
@@ -121,11 +147,11 @@ export function Navbar() {
         }`}
       >
         <div
-          className={`flex h-full flex-col border-l border-white/20 bg-[linear-gradient(180deg,#EC6B3B_0%,#F15A24_64%,#FF6B00_100%)] px-6 pb-8 pt-32 shadow-soft transition-transform duration-300 ${
+          className={`flex h-full flex-col border-l border-line bg-ink px-6 pb-8 pt-28 shadow-soft transition-transform duration-300 ${
             isOpen ? "translate-x-0" : "translate-x-full"
           }`}
         >
-          <p className="text-[10px] font-black uppercase tracking-[0.18em] text-white/70">SwimCore navigation</p>
+          <p className="text-[10px] font-black uppercase tracking-[0.18em] text-white/45">SwimCore navigation</p>
           <div className="mt-6 grid gap-2">
             {mobileLinks.map((link) => (
               <a
@@ -133,7 +159,7 @@ export function Navbar() {
                 href={link.href}
                 tabIndex={isOpen ? undefined : -1}
                 onClick={() => setIsOpen(false)}
-                className="rounded-xl border border-transparent px-3 py-3 text-base font-black text-white/90 transition-all duration-300 hover:border-white/15 hover:bg-white/10 hover:text-white"
+                className="rounded-xl border border-transparent px-3 py-3 text-base font-black text-white transition-all duration-300 hover:border-orange/35 hover:bg-white/5 hover:text-orange"
               >
                 {link.label}
               </a>
@@ -146,7 +172,7 @@ export function Navbar() {
               rel="noreferrer"
               aria-label="Instagram SwimCore"
               tabIndex={isOpen ? undefined : -1}
-              className="inline-flex items-center justify-center gap-2 rounded-full border border-white/25 px-5 py-3.5 text-sm font-black text-white transition-all duration-300 hover:bg-ink"
+              className="inline-flex items-center justify-center gap-2 rounded-full border border-white/15 px-5 py-3.5 text-sm font-black text-white transition-all duration-300 hover:border-orange/50 hover:bg-white/5 hover:text-orange"
             >
               <Icon name="instagram" className="h-5 w-5" />
               Instagram
@@ -155,7 +181,7 @@ export function Navbar() {
               href="#kontakt"
               tabIndex={isOpen ? undefined : -1}
               onClick={() => setIsOpen(false)}
-              className="inline-flex items-center justify-center rounded-full bg-ink px-5 py-3.5 text-sm font-black text-white shadow-[0_14px_32px_rgba(17,17,17,0.28)] transition-all duration-300 hover:-translate-y-1 hover:bg-[#1A1A1A]"
+              className="inline-flex items-center justify-center rounded-full border border-orange bg-orange px-5 py-3.5 text-sm font-black text-ink shadow-none transition-all duration-300 hover:-translate-y-1 hover:bg-ink hover:text-white"
             >
               Zapisz się
             </a>
