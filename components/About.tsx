@@ -1,6 +1,12 @@
+import { existsSync } from "node:fs";
+import { join } from "node:path";
+import Image from "next/image";
 import { Container } from "./Container";
 import { Icon } from "./Icons";
 import { SectionHeading } from "./SectionHeading";
+
+const founderPhotoSrc = "/images/igor-szczerba.jpg";
+const hasFounderPhoto = existsSync(join(process.cwd(), "public", "images", "igor-szczerba.jpg"));
 
 const achievements = [
   "Medalista Mistrzostw Polski Juniorów",
@@ -18,21 +24,44 @@ export function About() {
             <div className="relative aspect-[0.82] overflow-hidden rounded-[2rem] border border-line bg-card shadow-soft">
               <div className="pointer-events-none absolute -left-24 -top-24 h-72 w-72 rounded-full bg-orange/18 blur-3xl" />
               <div className="pointer-events-none absolute -bottom-28 -right-20 h-72 w-72 rounded-full bg-orange/10 blur-3xl" />
-              <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.035)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.035)_1px,transparent_1px)] bg-[size:56px_56px]" />
-              <div className="relative flex h-full flex-col justify-between p-7 sm:p-8">
-                <div className="inline-flex w-fit rounded-full border border-orange/25 bg-orange/10 px-3 py-1 text-[10px] font-black uppercase tracking-[0.16em] text-orange">
-                  Założyciel
-                </div>
-                <div>
-                  <div className="text-[7rem] font-black leading-none tracking-[-0.12em] text-white sm:text-[8rem]">
-                    IS
+              <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.025)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.025)_1px,transparent_1px)] bg-[size:56px_56px]" />
+
+              {hasFounderPhoto ? (
+                <>
+                  <Image
+                    src={founderPhotoSrc}
+                    alt="Igor Szczerba, założyciel SwimCore"
+                    fill
+                    sizes="(max-width: 1024px) 90vw, 34vw"
+                    className="object-cover object-center"
+                  />
+                  <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(5,5,5,0.05)_0%,rgba(5,5,5,0.78)_100%)]" />
+                  <div className="relative flex h-full flex-col justify-between p-7 sm:p-8">
+                    <div className="inline-flex w-fit rounded-full border border-orange/25 bg-black/45 px-3 py-1 text-[10px] font-black uppercase tracking-[0.16em] text-orange backdrop-blur-md">
+                      Założyciel
+                    </div>
+                    <div className="rounded-2xl border border-line bg-ink/72 p-5 backdrop-blur-xl">
+                      <p className="text-xl font-black tracking-[-0.04em] text-white">Igor Szczerba</p>
+                      <p className="mt-1 text-sm font-bold text-muted">Założyciel SwimCore</p>
+                    </div>
                   </div>
-                  <div className="mt-6 rounded-2xl border border-line bg-ink/70 p-5 backdrop-blur-xl">
-                    <p className="text-xl font-black tracking-[-0.04em] text-white">Igor Szczerba</p>
-                    <p className="mt-1 text-sm font-bold text-muted">Założyciel SwimCore</p>
+                </>
+              ) : (
+                <div className="relative flex h-full flex-col justify-between p-7 sm:p-8">
+                  <div className="inline-flex w-fit rounded-full border border-orange/25 bg-orange/10 px-3 py-1 text-[10px] font-black uppercase tracking-[0.16em] text-orange">
+                    Założyciel
+                  </div>
+                  <div>
+                    <div className="text-[7rem] font-black leading-none tracking-[-0.12em] text-white sm:text-[8rem]">
+                      IS
+                    </div>
+                    <div className="mt-6 rounded-2xl border border-line bg-ink/70 p-5 backdrop-blur-xl">
+                      <p className="text-xl font-black tracking-[-0.04em] text-white">Igor Szczerba</p>
+                      <p className="mt-1 text-sm font-bold text-muted">Założyciel SwimCore</p>
+                    </div>
                   </div>
                 </div>
-              </div>
+              )}
             </div>
             <span className="absolute -right-5 -top-5 grid h-20 w-20 place-items-center rounded-3xl bg-orange text-ink shadow-glow sm:-right-8 sm:top-10">
               <Icon name="medal" className="h-8 w-8" />

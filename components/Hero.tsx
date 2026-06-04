@@ -7,7 +7,7 @@ export function Hero() {
     <section className="relative overflow-hidden bg-ink pb-24 pt-20 text-white sm:pb-28 sm:pt-28 lg:min-h-[850px] lg:pb-32 lg:pt-32">
       <div className="pointer-events-none absolute -left-40 top-8 h-[34rem] w-[34rem] rounded-full bg-orange/10 blur-3xl" />
       <div className="pointer-events-none absolute -right-36 bottom-0 h-[36rem] w-[36rem] rounded-full bg-orange/8 blur-3xl" />
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_75%_18%,rgba(255,90,0,0.16),transparent_30%),linear-gradient(rgba(255,255,255,0.035)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.035)_1px,transparent_1px)] bg-[size:auto,72px_72px,72px_72px]" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_75%_18%,rgba(255,90,0,0.12),transparent_30%),linear-gradient(rgba(255,255,255,0.012)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.012)_1px,transparent_1px)] bg-[size:auto,72px_72px,72px_72px]" />
       <Container className="relative">
         <div className="grid items-center gap-14 lg:grid-cols-[1.02fr_0.98fr] lg:gap-16">
           <div>
@@ -55,8 +55,8 @@ export function Hero() {
               <div className="pointer-events-none absolute -right-20 -top-20 h-72 w-72 rounded-full bg-orange/18 blur-3xl" />
               <div className="pointer-events-none absolute -bottom-24 -left-16 h-72 w-72 rounded-full bg-orange/12 blur-3xl" />
               <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_42%,rgba(255,90,0,0.16),transparent_34%),linear-gradient(rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.04)_1px,transparent_1px)] bg-[size:auto,54px_54px,54px_54px]" />
-              <div className="pointer-events-none absolute inset-x-10 top-10 h-px bg-gradient-to-r from-transparent via-orange/50 to-transparent" />
-              <div className="pointer-events-none absolute inset-y-10 right-10 w-px bg-gradient-to-b from-transparent via-orange/30 to-transparent" />
+              <div className="pointer-events-none absolute inset-x-10 top-10 h-px bg-gradient-to-r from-transparent via-orange/45 to-transparent" />
+              <div className="pointer-events-none absolute inset-y-10 right-10 w-px bg-gradient-to-b from-transparent via-orange/25 to-transparent" />
 
               <div className="absolute inset-0">
                 <div className="relative h-full w-full max-w-none sm:h-full">
@@ -71,9 +71,6 @@ export function Hero() {
                 </div>
                 <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(5,5,5,0.05)_0%,rgba(5,5,5,0.44)_100%),radial-gradient(circle_at_70%_18%,rgba(255,90,0,0.2),transparent_34%)]" />
                 <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.035)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.035)_1px,transparent_1px)] bg-[size:54px_54px] opacity-45" />
-                <p className="hidden">
-                  RUCH • TECHNIKA • POSTĘP
-                </p>
               </div>
             </div>
 

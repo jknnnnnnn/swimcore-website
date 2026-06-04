@@ -70,9 +70,9 @@ textarea {
 
 .logo-img {
   display: block;
-  width: 300px;
+  width: 320px;
   height: auto;
-  max-width: 58vw;
+  max-width: 62vw;
   object-fit: contain;
   object-position: center;
   mix-blend-mode: lighten;
@@ -94,7 +94,7 @@ textarea {
   }
 
   .logo-img {
-    width: 196px;
+    width: 236px;
     height: auto;
   }
 }
