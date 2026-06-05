@@ -9,15 +9,14 @@ import { Logo } from "./Logo";
 const desktopLinks = [
   { href: "#oferta", label: "Cele" },
   { href: "#proces", label: "Proces" },
-  { href: "#o-nas", label: "O nas" },
+  { href: "#o-nas", label: "Kadra" },
   { href: "#kontakt", label: "Kontakt" },
 ];
 
 const mobileLinks = [
   { href: "#oferta", label: "Oferta" },
   { href: "#cennik", label: "Cennik" },
-  { href: "#o-nas", label: "O założycielu" },
-  { href: "#opinie", label: "Opinie" },
+  { href: "#o-nas", label: "Kadra" },
   { href: "#kontakt", label: "Kontakt" },
 ];
 
@@ -191,3 +190,4 @@ export function Navbar() {
     </header>
   );
 }
+

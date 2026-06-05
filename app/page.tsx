@@ -11,7 +11,6 @@ import { ProcessSection } from "@/components/ProcessSection";
 import { SocialFollowSection } from "@/components/SocialFollowSection";
 import { SmoothEffects } from "@/components/SmoothEffects";
 import { StickyMobileCTA } from "@/components/StickyMobileCTA";
-import { Testimonials } from "@/components/Testimonials";
 import { WhyUs } from "@/components/WhyUs";
 
 export default function Home() {
@@ -26,7 +25,6 @@ export default function Home() {
         <WhyUs />
         <About />
         <SocialFollowSection />
-        <Testimonials />
         <PracticalInfo />
         <PricingSection />
         <FAQSection />
