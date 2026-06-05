@@ -15,6 +15,7 @@ type Instructor = {
     src: string;
     alt: string;
     fileName: string;
+    objectPosition?: string;
   };
 };
 
@@ -30,6 +31,7 @@ const instructors: Instructor[] = [
       src: "/images/igor-szczerba.jpg",
       alt: "Igor Szczerba, założyciel SwimCore i instruktor pływania",
       fileName: "igor-szczerba.jpg",
+      objectPosition: "center",
     },
   },
   {
@@ -43,6 +45,7 @@ const instructors: Instructor[] = [
       src: "/images/michal-patrzalek.jpg",
       alt: "Michał Patrzałek, instruktor pływania SwimCore",
       fileName: "michal-patrzalek.jpg",
+      objectPosition: "center 72%",
     },
   },
 ];
@@ -62,7 +65,7 @@ export function About() {
           centered
         />
 
-        <div className="mx-auto mt-12 grid max-w-5xl gap-6 lg:mt-14">
+        <div className="mx-auto mt-12 grid max-w-5xl gap-12 lg:mt-14 lg:gap-16">
           {instructors.map((instructor) => {
             const showPhoto = instructor.photo ? hasPublicImage(instructor.photo.fileName) : false;
 
@@ -83,7 +86,8 @@ export function About() {
                         alt={instructor.photo.alt}
                         fill
                         sizes="(max-width: 1024px) 92vw, 34vw"
-                        className="object-cover object-center"
+                        className="object-cover"
+                        style={{ objectPosition: instructor.photo.objectPosition ?? "center" }}
                       />
                       <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(5,5,5,0.04)_0%,rgba(5,5,5,0.72)_100%)]" />
                     </>

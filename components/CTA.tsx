@@ -184,7 +184,7 @@ export function CTA() {
                 ) : null}
                 {submitStatus === "error" ? (
                   <p className="mt-4 rounded-2xl border border-red-500/30 bg-red-500/10 px-4 py-3 text-center text-xs font-bold leading-6 text-white">
-                    Coś poszło nie tak. Zadzwoń: {siteConfig.phone}
+                    Coś poszło nie tak. Zadzwoń: {siteConfig.phone}.
                   </p>
                 ) : null}
               </div>
