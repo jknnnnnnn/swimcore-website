@@ -32,6 +32,19 @@ const instructors: Instructor[] = [
       fileName: "igor-szczerba.jpg",
     },
   },
+  {
+    name: "Michał Patrzałek",
+    initials: "MP",
+    role: "Instruktor pływania",
+    description:
+      "Wieloletni zawodnik sekcji pływackiej UKS Sokół Tarnów. Medalista Akademickich Mistrzostw Tarnowa oraz ratownik WOPR z wieloletnim doświadczeniem. Student fizjoterapii na Akademii Tarnowskiej.",
+    tags: ["UKS Sokół Tarnów", "Ratownik WOPR", "Fizjoterapia", "Instruktor pływania"],
+    photo: {
+      src: "/images/michal-patrzalek.jpg",
+      alt: "Michał Patrzałek, instruktor pływania SwimCore",
+      fileName: "michal-patrzalek.jpg",
+    },
+  },
 ];
 
 function hasPublicImage(fileName: string) {
