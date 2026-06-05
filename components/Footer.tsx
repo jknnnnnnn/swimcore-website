@@ -3,6 +3,14 @@ import { Container } from "./Container";
 import { Icon } from "./Icons";
 import { Logo } from "./Logo";
 
+const footerLinks = [
+  { href: "#oferta", label: "Oferta" },
+  { href: "#cennik", label: "Cennik" },
+  { href: "#kadra", label: "Kadra" },
+  { href: "#faq", label: "FAQ" },
+  { href: "#kontakt", label: "Kontakt" },
+];
+
 export function Footer() {
   return (
     <footer className="bg-ink py-10 text-white">
@@ -15,18 +23,15 @@ export function Footer() {
             </p>
           </div>
           <nav aria-label="Stopka" className="flex flex-wrap gap-x-6 gap-y-3">
-            <a href="#oferta" className="text-sm font-bold text-white/65 transition-colors hover:text-orange">
-              Cele
-            </a>
-            <a href="#proces" className="text-sm font-bold text-white/65 transition-colors hover:text-orange">
-              Proces
-            </a>
-            <a href="#o-nas" className="text-sm font-bold text-white/65 transition-colors hover:text-orange">
-              O nas
-            </a>
-            <a href="#kontakt" className="text-sm font-bold text-white/65 transition-colors hover:text-orange">
-              Kontakt
-            </a>
+            {footerLinks.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                className="text-sm font-bold text-white/65 transition-colors hover:text-orange"
+              >
+                {link.label}
+              </a>
+            ))}
           </nav>
         </div>
         <div className="flex flex-col gap-5 pt-6 text-xs font-semibold text-white/45 sm:flex-row sm:items-start sm:justify-between">

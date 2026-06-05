@@ -56,7 +56,7 @@ function hasPublicImage(fileName: string) {
 
 export function About() {
   return (
-    <section id="o-nas" className="scroll-mt-16 bg-ink py-24 sm:py-28 lg:py-32">
+    <section id="kadra" className="scroll-mt-16 bg-ink py-24 sm:py-28 lg:py-32">
       <Container>
         <SectionHeading
           eyebrow="Kadra"

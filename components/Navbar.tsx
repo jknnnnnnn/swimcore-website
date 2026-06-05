@@ -7,16 +7,18 @@ import { Icon } from "./Icons";
 import { Logo } from "./Logo";
 
 const desktopLinks = [
-  { href: "#oferta", label: "Cele" },
-  { href: "#proces", label: "Proces" },
-  { href: "#o-nas", label: "Kadra" },
+  { href: "#oferta", label: "Oferta" },
+  { href: "#cennik", label: "Cennik" },
+  { href: "#kadra", label: "Kadra" },
+  { href: "#faq", label: "FAQ" },
   { href: "#kontakt", label: "Kontakt" },
 ];
 
 const mobileLinks = [
   { href: "#oferta", label: "Oferta" },
   { href: "#cennik", label: "Cennik" },
-  { href: "#o-nas", label: "Kadra" },
+  { href: "#kadra", label: "Kadra" },
+  { href: "#faq", label: "FAQ" },
   { href: "#kontakt", label: "Kontakt" },
 ];
 
