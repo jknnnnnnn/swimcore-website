@@ -10,10 +10,21 @@ const nextConfig = {
         has: [
           {
             type: "host",
-            value: "swimcore.pl",
+            value: "www.swimcore.pl",
           },
         ],
-        destination: "https://www.swimcore.pl/",
+        destination: "https://swimcore.pl/",
+        statusCode: 301,
+      },
+      {
+        source: "/:path*",
+        has: [
+          {
+            type: "host",
+            value: "www.swimcore.pl",
+          },
+        ],
+        destination: "https://swimcore.pl/:path*",
         statusCode: 301,
       },
       {
@@ -21,7 +32,7 @@ const nextConfig = {
         has: [
           {
             type: "host",
-            value: "www.swimcore.pl",
+            value: "swimcore.pl",
           },
           {
             type: "header",
@@ -29,7 +40,7 @@ const nextConfig = {
             value: "http",
           },
         ],
-        destination: "https://www.swimcore.pl/",
+        destination: "https://swimcore.pl/",
         statusCode: 301,
       },
       {
@@ -39,24 +50,13 @@ const nextConfig = {
             type: "host",
             value: "swimcore.pl",
           },
-        ],
-        destination: "https://www.swimcore.pl/:path*",
-        statusCode: 301,
-      },
-      {
-        source: "/:path*",
-        has: [
-          {
-            type: "host",
-            value: "www.swimcore.pl",
-          },
           {
             type: "header",
             key: "x-forwarded-proto",
             value: "http",
           },
         ],
-        destination: "https://www.swimcore.pl/:path*",
+        destination: "https://swimcore.pl/:path*",
         statusCode: 301,
       },
     ];

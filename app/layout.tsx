@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { LocalBusinessJsonLd } from "@/components/LocalBusinessJsonLd";
 import "./globals.css";
 
-const siteUrl = "https://www.swimcore.pl";
+const siteUrl = "https://swimcore.pl";
 const canonicalUrl = `${siteUrl}/`;
 const seoTitle = "SwimCore – Pływanie z konkretnym celem";
 const seoDescription =
