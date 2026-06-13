@@ -2,11 +2,15 @@ import type { Metadata } from "next";
 import { LocalBusinessJsonLd } from "@/components/LocalBusinessJsonLd";
 import "./globals.css";
 
+const siteUrl = "https://www.swimcore.pl";
+const seoTitle = "SwimCore – Pływanie z konkretnym celem";
+const seoDescription =
+  "Nowoczesna szkoła pływania w Tarnowie dla dzieci, dorosłych, zawodników, triathlonistów i osób przygotowujących się do egzaminów służbowych.";
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.swimcore.pl"),
-  title: "SwimCore – Szkoła Pływania Tarnów",
-  description:
-    "Nauka pływania w Tarnowie dla dzieci, dorosłych i sportowców. Lekcje indywidualne, doskonalenie techniki, triathlon, Ironman oraz przygotowanie do egzaminów służbowych.",
+  metadataBase: new URL(siteUrl),
+  title: seoTitle,
+  description: seoDescription,
   keywords: [
     "nauka pływania Tarnów",
     "szkoła pływania Tarnów",
@@ -15,22 +19,30 @@ export const metadata: Metadata = {
     "pływanie dorośli Tarnów",
   ],
   alternates: {
-    canonical: "https://www.swimcore.pl",
+    canonical: siteUrl,
   },
   openGraph: {
-    title: "SwimCore – Szkoła Pływania Tarnów",
-    description:
-      "Nauka pływania w Tarnowie dla dzieci, dorosłych i sportowców. Lekcje indywidualne, doskonalenie techniki, triathlon, Ironman oraz przygotowanie do egzaminów służbowych.",
+    title: seoTitle,
+    description: seoDescription,
     type: "website",
     locale: "pl_PL",
-    url: "https://www.swimcore.pl",
+    url: siteUrl,
     siteName: "SwimCore",
   },
   twitter: {
     card: "summary",
-    title: "SwimCore – Szkoła Pływania Tarnów",
-    description:
-      "Nauka pływania w Tarnowie dla dzieci, dorosłych i sportowców. Lekcje indywidualne, doskonalenie techniki, triathlon, Ironman oraz przygotowanie do egzaminów służbowych.",
+    title: seoTitle,
+    description: seoDescription,
+  },
+  icons: {
+    icon: [
+      { url: "/favicon.ico?v=2", sizes: "any" },
+      { url: "/icon.png?v=2", type: "image/png", sizes: "512x512" },
+    ],
+    apple: [
+      { url: "/apple-icon.png?v=2", type: "image/png", sizes: "180x180" },
+    ],
+    shortcut: ["/favicon.ico?v=2"],
   },
 };
 
