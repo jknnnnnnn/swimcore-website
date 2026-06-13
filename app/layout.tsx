@@ -3,6 +3,7 @@ import { LocalBusinessJsonLd } from "@/components/LocalBusinessJsonLd";
 import "./globals.css";
 
 const siteUrl = "https://www.swimcore.pl";
+const canonicalUrl = `${siteUrl}/`;
 const seoTitle = "SwimCore – Pływanie z konkretnym celem";
 const seoDescription =
   "Nowoczesna szkoła pływania w Tarnowie dla dzieci, dorosłych, zawodników, triathlonistów i osób przygotowujących się do egzaminów służbowych.";
@@ -19,14 +20,14 @@ export const metadata: Metadata = {
     "pływanie dorośli Tarnów",
   ],
   alternates: {
-    canonical: siteUrl,
+    canonical: canonicalUrl,
   },
   openGraph: {
     title: seoTitle,
     description: seoDescription,
     type: "website",
     locale: "pl_PL",
-    url: siteUrl,
+    url: canonicalUrl,
     siteName: "SwimCore",
   },
   twitter: {

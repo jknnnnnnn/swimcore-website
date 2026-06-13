@@ -6,7 +6,7 @@ const localBusinessSchema = {
   "@id": "https://www.swimcore.pl/#organization",
   name: "SwimCore",
   description: "Szkoła pływania w Tarnowie",
-  url: "https://www.swimcore.pl",
+  url: "https://www.swimcore.pl/",
   email: siteConfig.email,
   telephone: siteConfig.phone,
   address: {
