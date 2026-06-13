@@ -187,6 +187,16 @@ export function CTA() {
                     Coś poszło nie tak. Zadzwoń: {siteConfig.phone}.
                   </p>
                 ) : null}
+                <p className="mt-4 text-center text-xs font-semibold leading-6 text-white/45">
+                  Przed rozpoczęciem zajęć prosimy o zapoznanie się z{" "}
+                  <a
+                    href="/regulamin"
+                    className="font-black text-orange underline decoration-orange/40 underline-offset-4 transition-colors hover:text-white"
+                  >
+                    regulaminem
+                  </a>{" "}
+                  SwimCore.
+                </p>
               </div>
             </form>
           </div>

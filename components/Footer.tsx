@@ -9,6 +9,7 @@ const footerLinks = [
   { href: "#kadra", label: "Kadra" },
   { href: "#faq", label: "FAQ" },
   { href: "#kontakt", label: "Kontakt" },
+  { href: "/regulamin", label: "Regulamin zajęć" },
 ];
 
 export function Footer() {
