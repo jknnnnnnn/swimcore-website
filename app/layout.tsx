@@ -4,9 +4,12 @@ import "./globals.css";
 
 const siteUrl = "https://swimcore.pl";
 const canonicalUrl = `${siteUrl}/`;
-const seoTitle = "SwimCore – Pływanie z konkretnym celem";
+const seoTitle = "SwimCore — nauka pływania w Tarnowie dla dzieci i dorosłych";
 const seoDescription =
-  "Nowoczesna szkoła pływania w Tarnowie dla dzieci, dorosłych, zawodników, triathlonistów i osób przygotowujących się do egzaminów służbowych.";
+  "Szkoła pływania SwimCore w Tarnowie. Indywidualne lekcje i małe grupy dla dzieci, dorosłych oraz osób chcących poprawić technikę pływania.";
+const openGraphTitle = "SwimCore — nauka pływania w Tarnowie";
+const openGraphDescription =
+  "Lekcje pływania dla dzieci i dorosłych w Tarnowie. Indywidualnie lub w małych grupach.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -16,15 +19,15 @@ export const metadata: Metadata = {
     "nauka pływania Tarnów",
     "szkoła pływania Tarnów",
     "instruktor pływania Tarnów",
-    "pływanie dzieci Tarnów",
-    "pływanie dorośli Tarnów",
+    "lekcje pływania dla dzieci",
+    "lekcje pływania dla dorosłych",
   ],
   alternates: {
     canonical: canonicalUrl,
   },
   openGraph: {
-    title: seoTitle,
-    description: seoDescription,
+    title: openGraphTitle,
+    description: openGraphDescription,
     type: "website",
     locale: "pl_PL",
     url: canonicalUrl,
@@ -32,8 +35,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary",
-    title: seoTitle,
-    description: seoDescription,
+    title: openGraphTitle,
+    description: openGraphDescription,
   },
   icons: {
     icon: [

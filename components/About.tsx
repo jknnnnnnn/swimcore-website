@@ -61,7 +61,7 @@ export function About() {
         <SectionHeading
           eyebrow="Kadra"
           title="Nasza kadra"
-          description="Zajęcia SwimCore prowadzą instruktorzy z doświadczeniem sportowym i indywidualnym podejściem do nauki pływania."
+          description="Zajęcia SwimCore prowadzą instruktorzy z doświadczeniem sportowym i indywidualnym podejściem do nauki pływania. Jeśli szukasz instruktora pływania w Tarnowie, dobierzemy prowadzącego do wieku, poziomu i celu."
           centered
         />
 

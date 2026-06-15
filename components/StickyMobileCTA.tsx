@@ -20,15 +20,26 @@ export function StickyMobileCTA() {
   }, []);
 
   return (
-    <a
-      href={siteConfig.phoneHref}
+    <div
       aria-hidden={!isVisible}
-      tabIndex={isVisible ? undefined : -1}
-      className={`fixed inset-x-4 bottom-[calc(1rem+env(safe-area-inset-bottom))] z-[60] flex items-center justify-center rounded-full border border-orange bg-orange px-5 py-4 text-sm font-black text-ink shadow-[0_0_34px_rgba(255,90,0,0.26)] transition-all duration-500 ease-out hover:-translate-y-0.5 hover:brightness-110 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange/60 focus-visible:ring-offset-2 focus-visible:ring-offset-ink lg:hidden ${
+      className={`fixed inset-x-3 bottom-[calc(0.85rem+env(safe-area-inset-bottom))] z-[60] grid grid-cols-2 gap-2 rounded-[1.35rem] border border-line bg-card/95 p-2 shadow-[0_0_34px_rgba(255,90,0,0.24)] backdrop-blur-xl transition-all duration-500 ease-out lg:hidden ${
         isVisible ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-7 opacity-0"
       }`}
     >
-      Zadzwoń i umów lekcję
-    </a>
+      <a
+        href={siteConfig.phoneHref}
+        tabIndex={isVisible ? undefined : -1}
+        className="flex min-h-12 items-center justify-center rounded-full bg-orange px-4 text-sm font-black text-ink transition-all duration-300 hover:brightness-110 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange/60 focus-visible:ring-offset-2 focus-visible:ring-offset-ink"
+      >
+        Zadzwoń
+      </a>
+      <a
+        href="#kontakt"
+        tabIndex={isVisible ? undefined : -1}
+        className="flex min-h-12 items-center justify-center rounded-full border border-orange/45 bg-ink px-4 text-sm font-black text-white transition-all duration-300 hover:border-orange hover:bg-orange/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange/60 focus-visible:ring-offset-2 focus-visible:ring-offset-ink"
+      >
+        Napisz
+      </a>
+    </div>
   );
 }

@@ -13,39 +13,37 @@ export function Hero() {
           <div>
             <p className="mb-6 inline-flex items-center gap-2 rounded-full border border-orange/20 bg-orange/10 px-3.5 py-2 text-[11px] font-black uppercase tracking-[0.16em] text-orange backdrop-blur-md sm:text-xs">
               <Icon name="spark" className="h-4 w-4" />
-              RUCH • TECHNIKA • POSTĘP
+              Pływanie z konkretnym celem
             </p>
-            <h1 className="max-w-2xl text-balance text-[3.25rem] font-black leading-[0.95] tracking-[-0.085em] text-white sm:text-[4.7rem] lg:text-[5.75rem]">
-              SwimCore – pływanie z <span className="text-orange">konkretnym celem</span>
+            <h1 className="max-w-3xl text-balance text-[2.75rem] font-black leading-[0.98] tracking-[-0.085em] text-white sm:text-[4.2rem] lg:text-[5rem]">
+              Nauka pływania <span className="text-orange">w Tarnowie</span>
+              <br />
+              dla <span className="text-orange">dzieci i dorosłych</span>
             </h1>
-            <p className="mt-6 max-w-xl text-[15px] leading-7 text-muted sm:text-lg sm:leading-8">
-              Lekcje pływania w Tarnowie dla dzieci, dorosłych i sportowców. Nauka od zera,
-              technika, triathlon i egzaminy służbowe.
+            <p className="mt-6 max-w-2xl text-[15px] leading-7 text-muted sm:text-lg sm:leading-8">
+              Szkoła pływania Tarnów dla osób, które chcą zacząć bez stresu. Indywidualne
+              lekcje i małe grupy w kontrolowanych warunkach, z planem dopasowanym do poziomu.
             </p>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
               <a
                 href="#kontakt"
                 className="inline-flex items-center justify-center gap-2 rounded-full bg-orange px-6 py-3.5 text-sm font-black text-ink shadow-glow transition-all duration-300 hover:-translate-y-1 hover:brightness-110"
               >
-                Zapisz się na pierwszą lekcję
+                Umów pierwszą lekcję
                 <Icon name="arrow" className="h-5 w-5" />
               </a>
               <a
-                href="#oferta"
-                className="hidden items-center justify-center rounded-full border border-orange/45 bg-ink px-6 py-3.5 text-sm font-black text-white shadow-none transition-all duration-300 hover:-translate-y-1 hover:border-orange hover:bg-orange/10 sm:inline-flex"
+                href="tel:+48730586383"
+                className="inline-flex items-center justify-center rounded-full border border-orange/45 bg-ink px-6 py-3.5 text-sm font-black text-white shadow-none transition-all duration-300 hover:-translate-y-1 hover:border-orange hover:bg-orange/10"
               >
-                Zobacz ofertę
+                Zadzwoń: 730 586 383
               </a>
             </div>
-            <div className="mt-10 flex flex-wrap gap-x-5 gap-y-3 text-xs font-bold text-muted sm:text-sm">
-              {["20+ aktywnych klientów", "Lekcje indywidualne", "Dzieci • Dorośli • Sportowcy"].map((item) => (
-                <span key={item} className="inline-flex items-center gap-2">
-                  <span className="grid h-5 w-5 place-items-center rounded-full bg-orange/20 text-orange">
-                    <Icon name="check" className="h-3.5 w-3.5" />
-                  </span>
-                  {item}
-                </span>
-              ))}
+            <div className="mt-8 inline-flex max-w-xl items-start gap-3 rounded-2xl border border-line bg-card/72 px-4 py-3 text-sm font-bold leading-6 text-white/75 backdrop-blur-xl sm:items-center">
+              <span className="mt-0.5 grid h-8 w-8 shrink-0 place-items-center rounded-full bg-orange/16 text-orange sm:mt-0">
+                <Icon name="check" className="h-4 w-4" />
+              </span>
+              <span>21 osób rozpoczęło zajęcia w pierwszym tygodniu działania SwimCore</span>
             </div>
           </div>
 

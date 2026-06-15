@@ -1,16 +1,14 @@
 import { About } from "@/components/About";
+import { AudienceSection } from "@/components/AudienceSection";
 import { CTA } from "@/components/CTA";
-import { FAQSection } from "@/components/FAQSection";
+import { FirstLessonSection } from "@/components/FirstLessonSection";
 import { Footer } from "@/components/Footer";
 import { Hero } from "@/components/Hero";
 import { Navbar } from "@/components/Navbar";
-import { OfferSection } from "@/components/OfferSection";
-import { PracticalInfo } from "@/components/PracticalInfo";
 import { PricingSection } from "@/components/PricingSection";
-import { ProcessSection } from "@/components/ProcessSection";
-import { SocialFollowSection } from "@/components/SocialFollowSection";
 import { SmoothEffects } from "@/components/SmoothEffects";
 import { StickyMobileCTA } from "@/components/StickyMobileCTA";
+import { Testimonials } from "@/components/Testimonials";
 import { WhyUs } from "@/components/WhyUs";
 
 export default function Home() {
@@ -20,14 +18,12 @@ export default function Home() {
       <main>
         <SmoothEffects />
         <Hero />
-        <OfferSection />
-        <ProcessSection />
+        <AudienceSection />
+        <FirstLessonSection />
+        <PricingSection />
         <WhyUs />
         <About />
-        <SocialFollowSection />
-        <PracticalInfo />
-        <PricingSection />
-        <FAQSection />
+        <Testimonials />
         <CTA />
       </main>
       <Footer />

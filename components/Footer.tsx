@@ -7,14 +7,14 @@ const footerLinks = [
   { href: "#oferta", label: "Oferta" },
   { href: "#cennik", label: "Cennik" },
   { href: "#kadra", label: "Kadra" },
-  { href: "#faq", label: "FAQ" },
+  { href: "#opinie", label: "Opinie" },
   { href: "#kontakt", label: "Kontakt" },
   { href: "/regulamin", label: "Regulamin zajęć" },
 ];
 
 export function Footer() {
   return (
-    <footer className="bg-ink py-10 text-white">
+    <footer className="bg-ink pb-32 pt-10 text-white lg:py-10">
       <Container>
         <div className="flex flex-col gap-8 border-b border-line pb-8 sm:flex-row sm:items-center sm:justify-between">
           <div>

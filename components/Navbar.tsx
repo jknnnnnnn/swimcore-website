@@ -10,7 +10,7 @@ const desktopLinks = [
   { href: "#oferta", label: "Oferta" },
   { href: "#cennik", label: "Cennik" },
   { href: "#kadra", label: "Kadra" },
-  { href: "#faq", label: "FAQ" },
+  { href: "#opinie", label: "Opinie" },
   { href: "#kontakt", label: "Kontakt" },
 ];
 
@@ -18,7 +18,7 @@ const mobileLinks = [
   { href: "#oferta", label: "Oferta" },
   { href: "#cennik", label: "Cennik" },
   { href: "#kadra", label: "Kadra" },
-  { href: "#faq", label: "FAQ" },
+  { href: "#opinie", label: "Opinie" },
   { href: "#kontakt", label: "Kontakt" },
 ];
 
@@ -61,40 +61,50 @@ export function Navbar() {
     <header
       className={`sticky inset-x-0 top-0 z-40 border-b border-line text-white backdrop-blur-xl transition-all duration-500 ${
         hasScrolled
-          ? "bg-[rgba(5,5,5,0.92)] shadow-[0_16px_38px_rgba(0,0,0,0.22)]"
+          ? "bg-[rgba(5,5,5,0.92)] shadow-[0_12px_28px_rgba(0,0,0,0.18)]"
           : "bg-[#050505] shadow-none"
       }`}
     >
       <Container
         className={`flex items-center justify-between transition-[height] duration-500 ${
-          hasScrolled ? "h-[64px] lg:h-[68px]" : "h-[72px] lg:h-[76px]"
+          hasScrolled ? "h-[68px] lg:h-[72px]" : "h-[72px] lg:h-[78px]"
         }`}
       >
         <div
-          className={`transition-transform duration-500 ${hasScrolled ? "scale-[0.94]" : "scale-100"}`}
+          className={`transition-transform duration-500 ${
+            hasScrolled ? "scale-[0.96]" : "scale-100"
+          }`}
         >
           <Logo />
         </div>
-        <nav aria-label="Główna nawigacja" className="hidden items-center gap-7 lg:flex">
+
+        <nav aria-label="Główna nawigacja" className="hidden items-center gap-8 lg:flex">
           {desktopLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className="rounded-full px-3 py-2 text-sm font-bold text-white/82 transition-colors duration-300 hover:text-orange"
+              className="rounded-full px-3.5 py-2 text-sm font-bold text-white/78 transition-colors duration-300 hover:text-orange"
             >
               {link.label}
             </a>
           ))}
         </nav>
+
         <div className="hidden items-center gap-3 lg:flex">
+          <a
+            href={siteConfig.phoneHref}
+            className="rounded-full border border-orange/35 bg-white/[0.02] px-4 py-2.5 text-sm font-extrabold text-white/88 transition-all duration-300 hover:-translate-y-0.5 hover:border-orange hover:bg-orange/10 hover:text-white"
+          >
+            Zadzwoń: 730 586 383
+          </a>
           <a
             href={siteConfig.social.instagram}
             target="_blank"
             rel="noreferrer"
             aria-label="Instagram SwimCore"
-            className="grid h-10 w-10 place-items-center rounded-full border border-white/15 text-white transition-all duration-300 hover:-translate-y-0.5 hover:border-orange/60 hover:bg-white/5 hover:text-orange"
+            className="grid h-9 w-9 place-items-center rounded-full border border-white/12 text-white/82 transition-all duration-300 hover:-translate-y-0.5 hover:border-orange/60 hover:bg-white/5 hover:text-orange"
           >
-            <Icon name="instagram" className="h-5 w-5" />
+            <Icon name="instagram" className="h-[18px] w-[18px]" />
           </a>
           <a
             href="#kontakt"
@@ -103,6 +113,7 @@ export function Navbar() {
             Zapisz się
           </a>
         </div>
+
         <button
           type="button"
           aria-label={isOpen ? "Zamknij menu" : "Otwórz menu"}
@@ -152,7 +163,9 @@ export function Navbar() {
             isOpen ? "translate-x-0" : "translate-x-full"
           }`}
         >
-          <p className="text-[10px] font-black uppercase tracking-[0.18em] text-white/45">SwimCore navigation</p>
+          <p className="text-[10px] font-black uppercase tracking-[0.18em] text-white/45">
+            SwimCore navigation
+          </p>
           <div className="mt-6 grid gap-2">
             {mobileLinks.map((link) => (
               <a
@@ -167,6 +180,14 @@ export function Navbar() {
             ))}
           </div>
           <div className="mt-auto grid gap-3">
+            <a
+              href={siteConfig.phoneHref}
+              tabIndex={isOpen ? undefined : -1}
+              onClick={() => setIsOpen(false)}
+              className="inline-flex items-center justify-center rounded-full border border-orange bg-orange px-5 py-3.5 text-sm font-black text-ink shadow-none transition-all duration-300 hover:-translate-y-1 hover:brightness-110"
+            >
+              Zadzwoń: 730 586 383
+            </a>
             <a
               href={siteConfig.social.instagram}
               target="_blank"
@@ -192,4 +213,3 @@ export function Navbar() {
     </header>
   );
 }
-

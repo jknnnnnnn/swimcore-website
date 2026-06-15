@@ -8,6 +8,14 @@ import { Icon } from "./Icons";
 
 const formspreeEndpoint = "https://formspree.io/f/xgobvklp";
 
+const audienceOptions = [
+  "Dziecko",
+  "Dorosły",
+  "Sportowiec / zawodnik",
+  "Mała grupa",
+  "Nie wiem jeszcze",
+];
+
 const goalOptions = [
   "Nauka pływania dziecka",
   "Nauka pływania dorosłego",
@@ -55,7 +63,7 @@ export function CTA() {
   }
 
   return (
-    <section id="kontakt" className="scroll-mt-12 bg-ink py-20 sm:py-24">
+    <section id="kontakt" className="scroll-mt-12 bg-ink pb-32 pt-20 sm:py-24">
       <Container>
         <div className="relative overflow-hidden rounded-[2rem] border border-line bg-card px-6 py-12 shadow-none sm:px-10 sm:py-16 lg:px-16 lg:py-20">
           <div className="pointer-events-none absolute -left-24 -top-28 h-72 w-72 rounded-full bg-orange/18 blur-3xl" />
@@ -113,6 +121,11 @@ export function CTA() {
               className="grid gap-4 rounded-[1.5rem] border border-line bg-ink/80 p-5 shadow-none backdrop-blur-xl sm:grid-cols-2 sm:p-6"
             >
               <input type="hidden" name="_subject" value="Nowe zgłoszenie SwimCore" />
+              <div className="sm:col-span-2">
+                <p className="rounded-2xl border border-orange/20 bg-orange/10 px-4 py-3 text-sm font-bold leading-6 text-white">
+                  Zostaw numer telefonu — oddzwonimy i dobierzemy odpowiedni termin oraz formę zajęć.
+                </p>
+              </div>
               <label className="grid gap-2 text-xs font-bold text-white/75">
                 Imię
                 <input
@@ -136,13 +149,20 @@ export function CTA() {
                 />
               </label>
               <label className="grid gap-2 text-xs font-bold text-white/75 sm:col-span-2">
-                Wiek uczestnika
-                <input
+                Dla kogo są zajęcia?
+                <select
                   required
-                  name="wiek uczestnika"
-                  className="min-w-0 rounded-xl border border-line bg-card px-4 py-3 text-sm font-semibold text-white outline-none transition placeholder:text-muted/70 focus:border-orange focus:ring-2 focus:ring-orange/25"
-                  placeholder="np. 8 lat lub dorosły"
-                />
+                  name="dla kogo są zajęcia"
+                  defaultValue=""
+                  className="min-w-0 rounded-xl border border-line bg-card px-4 py-3 text-sm font-semibold text-white outline-none transition focus:border-orange focus:ring-2 focus:ring-orange/25"
+                >
+                  <option value="" disabled>
+                    Wybierz odpowiedź
+                  </option>
+                  {audienceOptions.map((option) => (
+                    <option key={option}>{option}</option>
+                  ))}
+                </select>
               </label>
               <label className="grid gap-2 text-xs font-bold text-white/75 sm:col-span-2">
                 Cel zajęć
@@ -161,7 +181,7 @@ export function CTA() {
                 </select>
               </label>
               <label className="grid gap-2 text-xs font-bold text-white/75 sm:col-span-2">
-                Wiadomość
+                Wiadomość <span className="font-semibold text-white/40">opcjonalne</span>
                 <textarea
                   name="wiadomość"
                   rows={4}
