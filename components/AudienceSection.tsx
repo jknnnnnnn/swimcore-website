@@ -25,7 +25,7 @@ const audienceCards: { title: string; description: string; icon: IconName }[] = 
 
 export function AudienceSection() {
   return (
-    <section id="dla-kogo" className="scroll-mt-16 bg-ink py-20 sm:py-24 lg:py-28">
+    <section id="oferta" className="scroll-mt-16 bg-ink py-20 sm:py-24 lg:py-28">
       <Container>
         <SectionHeading
           eyebrow="Dla kogo"
