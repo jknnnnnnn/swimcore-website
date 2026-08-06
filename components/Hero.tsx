@@ -43,7 +43,7 @@ export function Hero() {
               <span className="mt-0.5 grid h-8 w-8 shrink-0 place-items-center rounded-full bg-orange/16 text-orange sm:mt-0">
                 <Icon name="check" className="h-4 w-4" />
               </span>
-              <span>21 osób rozpoczęło zajęcia w pierwszym tygodniu działania SwimCore</span>
+              <span>100+ osób nam zaufało</span>
             </div>
           </div>
 

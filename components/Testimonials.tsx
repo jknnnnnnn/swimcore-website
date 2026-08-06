@@ -94,7 +94,7 @@ export function Testimonials() {
 
         <div className="mx-auto mt-7 flex max-w-2xl flex-col items-center gap-4 text-center">
           <p className="text-xs font-black uppercase tracking-[0.16em] text-muted">
-            5.0 w Google — 8 opinii klientów
+            5.0 w Google — 20 opinii klientów
           </p>
           <a
             href={googleReviewsUrl}
