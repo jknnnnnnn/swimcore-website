@@ -27,7 +27,7 @@ const sections: RegulationSection[] = [
           <>
             Organizatorem zajęć jest Igor Szczerba prowadzący działalność gospodarczą pod firmą{" "}
             <strong className="text-white">Igor Szczerba SwimCore</strong>, NIP:{" "}
-            <strong className="text-white">9930746252</strong>.
+            <strong className="text-white">9930716252</strong>.
           </>
         ),
       },
