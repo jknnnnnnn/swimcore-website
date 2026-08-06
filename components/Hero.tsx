@@ -21,8 +21,8 @@ export function Hero() {
               dla <span className="text-orange">dzieci i dorosłych</span>
             </h1>
             <p className="mt-6 max-w-2xl text-[15px] leading-7 text-muted sm:text-lg sm:leading-8">
-              Szkoła pływania Tarnów dla osób, które chcą zacząć bez stresu. Indywidualne
-              lekcje i małe grupy w kontrolowanych warunkach, z planem dopasowanym do poziomu.
+              Indywidualne lekcje i małe grupy dla dzieci i dorosłych. Uczymy spokojnie,
+              konkretnie i z planem dopasowanym do Twojego poziomu.
             </p>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
               <a
