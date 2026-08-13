@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { Container } from "./Container";
 import { Icon } from "./Icons";
 
@@ -58,13 +57,14 @@ export function Hero() {
 
               <div className="absolute inset-0">
                 <div className="relative h-full w-full max-w-none sm:h-full">
-                  <Image
-                    src="/images/swimcore-hero-pool.png"
-                    alt="Brandowy visual SwimCore z widokiem basenu z góry"
-                    fill
-                    priority
-                    sizes="(max-width: 1024px) 92vw, 42vw"
-                    className="object-cover object-center opacity-90"
+                  <video
+                    src="/strona.mp4"
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    preload="metadata"
+                    className="h-full w-full object-cover object-center opacity-90"
                   />
                 </div>
                 <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(5,5,5,0.05)_0%,rgba(5,5,5,0.44)_100%),radial-gradient(circle_at_70%_18%,rgba(255,90,0,0.2),transparent_34%)]" />
