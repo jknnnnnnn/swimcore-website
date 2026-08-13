@@ -3,7 +3,7 @@ import { Icon } from "./Icons";
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden bg-ink pb-24 pt-20 text-white sm:pb-28 sm:pt-28 lg:min-h-[850px] lg:pb-32 lg:pt-32">
+    <section className="relative overflow-hidden bg-ink pb-24 pt-20 text-white sm:pb-28 sm:pt-28 lg:min-h-[850px] lg:pb-32 lg:pt-24">
       <div className="pointer-events-none absolute -left-40 top-8 h-[34rem] w-[34rem] rounded-full bg-orange/10 blur-3xl" />
       <div className="pointer-events-none absolute -right-36 bottom-0 h-[36rem] w-[36rem] rounded-full bg-orange/8 blur-3xl" />
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_75%_18%,rgba(255,90,0,0.12),transparent_30%),linear-gradient(rgba(255,255,255,0.012)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.012)_1px,transparent_1px)] bg-[size:auto,72px_72px,72px_72px]" />
