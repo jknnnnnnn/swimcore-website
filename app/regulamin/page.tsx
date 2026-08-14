@@ -140,7 +140,7 @@ const sections: RegulationSection[] = [
         text: "Podane ceny dotyczą wyłącznie usługi prowadzenia zajęć pływania. Koszt biletu wejścia na basen klient opłaca we własnym zakresie.",
       },
       {
-        text: "Płatność za zajęcia następuje gotówką, przelewem, BLIK-iem lub w innej formie uzgodnionej ze SwimCore.",
+        text: "Płatność za zajęcia następuje przelewem, BLIK-iem lub w innej formie uzgodnionej ze SwimCore.",
       },
       {
         text: "W przypadku płatności przelewem lub BLIK-iem klient powinien podać w tytule płatności imię i nazwisko uczestnika oraz termin zajęć.",
