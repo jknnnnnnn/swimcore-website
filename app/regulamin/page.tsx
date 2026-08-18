@@ -126,10 +126,10 @@ const sections: RegulationSection[] = [
             lekcja indywidualna — <strong className="text-white">110 zł / 45 minut</strong>,
           </>,
           <>
-            lekcja 2-osobowa — <strong className="text-white">130 zł / 45 minut</strong>,
+            lekcja 2-osobowa — <strong className="text-white">150 zł / 45 minut</strong>,
           </>,
           <>
-            lekcja 3-osobowa — <strong className="text-white">150 zł / 45 minut</strong>.
+            lekcja 3-osobowa — <strong className="text-white">200 zł / 45 minut</strong>.
           </>,
         ],
       },
