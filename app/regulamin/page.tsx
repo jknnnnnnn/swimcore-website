@@ -60,10 +60,14 @@ const sections: RegulationSection[] = [
         text: "Zajęcia mogą odbywać się w formie:",
         children: [
           "lekcji indywidualnych,",
-          "lekcji dwuosobowych,",
-          "lekcji trzyosobowych,",
+          "lekcji DUO dla dwóch osób zapisujących się razem,",
+          "lekcji TRIO dla trzech osób zapisujących się razem,",
+          "Mikrogrup SwimCore DUO lub TRIO, których uczestników dobiera SwimCore,",
           "zajęć przygotowujących do egzaminów, triathlonu lub poprawy techniki pływania.",
         ],
+      },
+      {
+        text: "Uczestnicy Mikrogrup SwimCore są dobierani na podstawie wieku, poziomu pływackiego i dostępności. Na jednego instruktora przypadają maksymalnie 3 osoby.",
       },
       {
         text: (
@@ -120,21 +124,34 @@ const sections: RegulationSection[] = [
     title: "§5. Cennik i płatności",
     points: [
       {
-        text: "Aktualny cennik zajęć SwimCore:",
+        text: "Aktualny cennik lekcji prywatnych SwimCore:",
         children: [
           <>
             lekcja indywidualna — <strong className="text-white">110 zł / 45 minut</strong>,
           </>,
           <>
-            lekcja 2-osobowa — <strong className="text-white">150 zł / 45 minut</strong>,
+            DUO — <strong className="text-white">150 zł / 45 minut</strong>,
           </>,
           <>
-            lekcja 3-osobowa — <strong className="text-white">200 zł / 45 minut</strong>.
+            TRIO — <strong className="text-white">200 zł / 45 minut</strong>.
           </>,
         ],
       },
       {
-        text: "Cena dotyczy jednej lekcji pływania prowadzonej przez instruktora SwimCore.",
+        text: "Aktualny cennik Mikrogrup SwimCore:",
+        children: [
+          <>
+            Mikrogrupa DUO —{" "}
+            <strong className="text-white">320 zł / osoba / pakiet 4 zajęć</strong>,
+          </>,
+          <>
+            Mikrogrupa TRIO —{" "}
+            <strong className="text-white">300 zł / osoba / pakiet 4 zajęć</strong>.
+          </>,
+        ],
+      },
+      {
+        text: "Cena lekcji prywatnej dotyczy jednej lekcji pływania. Cena Mikrogrupy SwimCore dotyczy jednego uczestnika i pakietu 4 zajęć. Każde zajęcia trwają 45 minut.",
       },
       {
         text: "Podane ceny dotyczą wyłącznie usługi prowadzenia zajęć pływania. Koszt biletu wejścia na basen klient opłaca we własnym zakresie.",
