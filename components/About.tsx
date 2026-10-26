@@ -48,6 +48,20 @@ const instructors: Instructor[] = [
       objectPosition: "center 72%",
     },
   },
+  {
+    name: "Kamila Panek",
+    initials: "KP",
+    role: "Instruktorka pływania",
+    description:
+      "Studentka fizjoterapii, ratowniczka wodna i sędzia pływania. Rozwijała sportową pasję w klubie Fala Ropczyce, obecnie trenuje w AZS Akademia Tarnowska. Łączy doświadczenie pływackie i wiedzę o ludzkim ciele z pasją do dzielenia się umiejętnościami.",
+    tags: ["Ratowniczka wodna", "Sędzia pływania", "Fizjoterapia", "AZS Akademia Tarnowska"],
+    photo: {
+      src: "/images/kamila-panek.jpg",
+      alt: "Kamila Panek",
+      fileName: "kamila-panek.jpg",
+      objectPosition: "center",
+    },
+  },
 ];
 
 function hasPublicImage(fileName: string) {
