@@ -22,7 +22,8 @@ const mobileLinks = [
   { href: "#kontakt", label: "Kontakt" },
 ];
 
-export function Navbar() {
+export function Navbar({ sectionLinksOnHome = false }: { sectionLinksOnHome?: boolean }) {
+  const sectionPrefix = sectionLinksOnHome ? "/" : "";
   const [isOpen, setIsOpen] = useState(false);
   const [hasScrolled, setHasScrolled] = useState(false);
 
@@ -82,7 +83,7 @@ export function Navbar() {
           {desktopLinks.map((link) => (
             <a
               key={link.href}
-              href={link.href}
+              href={`${sectionPrefix}${link.href}`}
               className="rounded-full px-3.5 py-2 text-sm font-bold text-white/78 transition-colors duration-300 hover:text-orange"
             >
               {link.label}
@@ -107,7 +108,7 @@ export function Navbar() {
             <Icon name="instagram" className="h-[18px] w-[18px]" />
           </a>
           <a
-            href="#kontakt"
+            href={`${sectionPrefix}#kontakt`}
             className="rounded-full border border-orange bg-orange px-5 py-2.5 text-sm font-extrabold text-ink shadow-none transition-all duration-300 hover:-translate-y-0.5 hover:bg-ink hover:text-white hover:shadow-[0_0_0_1px_rgba(255,90,0,0.9)]"
           >
             Zapisz się
@@ -170,7 +171,7 @@ export function Navbar() {
             {mobileLinks.map((link) => (
               <a
                 key={link.href}
-                href={link.href}
+                href={`${sectionPrefix}${link.href}`}
                 tabIndex={isOpen ? undefined : -1}
                 onClick={() => setIsOpen(false)}
                 className="rounded-xl border border-transparent px-3 py-3 text-base font-black text-white transition-all duration-300 hover:border-orange/35 hover:bg-white/5 hover:text-orange"
@@ -200,7 +201,7 @@ export function Navbar() {
               Instagram
             </a>
             <a
-              href="#kontakt"
+              href={`${sectionPrefix}#kontakt`}
               tabIndex={isOpen ? undefined : -1}
               onClick={() => setIsOpen(false)}
               className="inline-flex items-center justify-center rounded-full border border-orange bg-orange px-5 py-3.5 text-sm font-black text-ink shadow-none transition-all duration-300 hover:-translate-y-1 hover:bg-ink hover:text-white"

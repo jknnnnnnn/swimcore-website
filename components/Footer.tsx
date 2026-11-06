@@ -10,9 +10,10 @@ const footerLinks = [
   { href: "#opinie", label: "Opinie" },
   { href: "#kontakt", label: "Kontakt" },
   { href: "/regulamin", label: "Regulamin zajęć" },
+  { href: "/polityka-prywatnosci", label: "Polityka prywatności" },
 ];
 
-export function Footer() {
+export function Footer({ sectionLinksOnHome = false }: { sectionLinksOnHome?: boolean }) {
   return (
     <footer className="bg-ink pb-32 pt-10 text-white lg:py-10">
       <Container>
@@ -27,7 +28,7 @@ export function Footer() {
             {footerLinks.map((link) => (
               <a
                 key={link.href}
-                href={link.href}
+                href={sectionLinksOnHome && link.href.startsWith("#") ? `/${link.href}` : link.href}
                 className="text-sm font-bold text-white/65 transition-colors hover:text-orange"
               >
                 {link.label}

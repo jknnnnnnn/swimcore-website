@@ -190,6 +190,16 @@ export function CTA() {
                 />
               </label>
               <div className="sm:col-span-2">
+                <p className="mb-4 text-xs font-semibold leading-6 text-white/65">
+                  Administratorem Twoich danych jest Igor Szczerba SwimCore. Dane
+                  wykorzystujemy do obsługi zgłoszenia. Szczegóły znajdziesz w{" "}
+                  <a
+                    href="/polityka-prywatnosci"
+                    className="rounded-sm font-bold text-orange underline decoration-orange/40 underline-offset-4 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange"
+                  >
+                    polityce prywatności
+                  </a>.
+                </p>
                 <button
                   type="submit"
                   disabled={isSubmitting}
